@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>K Shirish</title>
+    <description>K Shirish is learner, currently searching life in machines and wants to look into the eyes of his fears one day.
+</description>
+    <link>http://kshirish.github.io/</link>
+    <atom:link href="http://kshirish.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 04 Jul 2015 12:11:33 +0530</pubDate>
+    <lastBuildDate>Sat, 04 Jul 2015 12:11:33 +0530</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+  </channel>
+</rss>

@@ -1,0 +1,13 @@
+# Site settings
+title: K Shirish
+email: kisleyshirish25@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  K Shirish is a learner, currently searching life in machines
+  and wants to look into the eyes of his fears one day.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://kshirish.github.io" # the base hostname & protocol for your site
+twitter_username: kshiri_
+github_username:  kshirish
+exclude: ['README.md']
+# Build settings
+markdown: kramdown
