@@ -2,13 +2,85 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>K Shirish</title>
-    <description>K Shirish is learner, currently searching life in machines and wants to look into the eyes of his fears one day.
+    <description>K Shirish is a learner, currently searching life in machines and wants to look into the eyes of his fears one day.
 </description>
     <link>http://kshirish.github.io/</link>
     <atom:link href="http://kshirish.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 04 Jul 2015 12:11:33 +0530</pubDate>
-    <lastBuildDate>Sat, 04 Jul 2015 12:11:33 +0530</lastBuildDate>
+    <pubDate>Sun, 05 Jul 2015 23:14:18 +0530</pubDate>
+    <lastBuildDate>Sun, 05 Jul 2015 23:14:18 +0530</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Conditional comments!</title>
+        <description>&lt;p&gt;To keep it short - IE doesn’t walk along well with other modern web browsers. Many features of &lt;code&gt;HTML5&lt;/code&gt; and &lt;code&gt;CSS3&lt;/code&gt; are either partially implemented or not provided at all. See the &lt;a href=&quot;https://html5test.com/compare/browser/ie-9.html&quot;&gt;comparison&lt;/a&gt; for yourself.&lt;/p&gt;
+
+&lt;p&gt;Let me list out some of the stuff &lt;code&gt;IE9&lt;/code&gt; doesn’t support:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Application Cache (offline)&lt;/li&gt;
+  &lt;li&gt;Web Workers (threads in JavaScript)&lt;/li&gt;
+  &lt;li&gt;HTML5 Forms (validation mechanism, CSS3 selectors)&lt;/li&gt;
+  &lt;li&gt;JavaScript Strict Mode&lt;/li&gt;
+  &lt;li&gt;WebGL (3D)&lt;/li&gt;
+  &lt;li&gt;CSS3 Transitions (for animations)&lt;/li&gt;
+  &lt;li&gt;CSS3 Text Shadow&lt;/li&gt;
+  &lt;li&gt;CSS3 Gradients&lt;/li&gt;
+  &lt;li&gt;CSS3 Border Image&lt;/li&gt;
+  &lt;li&gt;CSS3 Flex box model&lt;/li&gt;
+  &lt;li&gt;ClassList APIs&lt;/li&gt;
+  &lt;li&gt;FormData&lt;/li&gt;
+  &lt;li&gt;HTML5 History API&lt;/li&gt;
+  &lt;li&gt;Drag’n Drop from Desktop&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Since it has substantial amount of users, it becomes inevitable to ignore it. Also tools like &lt;code&gt;Modernizr&lt;/code&gt; makes it easy for you to write conditional JavaScript and CSS to handle each situation, whether a browser supports a feature or not.&lt;/p&gt;
+
+&lt;p&gt;These conditional comments are only supported till &lt;code&gt;IE9&lt;/code&gt; (from &lt;code&gt;IE5&lt;/code&gt;). So if you need special CSS styles for &lt;code&gt;IE10&lt;/code&gt; or up you’ll have to find another method, since conditional comments are disabled in &lt;code&gt;IE10&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if IE]&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;According to the conditional comment this is IE5-IE9&amp;lt;br /&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if IE 6]&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;According to the conditional comment this is IE6&amp;lt;br /&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if IE 7]&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;According to the conditional comment this is IE7&amp;lt;br /&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if IE 8]&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;According to the conditional comment this is IE8&amp;lt;br /&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if IE 9]&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;According to the conditional comment this is IE9&amp;lt;br /&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if gte IE 8]&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;According to the conditional comment this is IE8 or higher&amp;lt;br /&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if lt IE 9]&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;According to the conditional comment this is IE lower than 9&amp;lt;br /&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if !IE]&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;According to the conditional comment this is not IE5-IE9&amp;lt;br /&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;![endif]--&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;conditional-linking-to-stylesheets&quot;&gt;Conditional linking to stylesheets&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;normal-styles.css&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if lte IE 9]&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot;  href=&amp;quot;ie-fixes.css&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;![endif]--&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Check here &lt;a href=&quot;http://stackoverflow.com/questions/16135814/check-for-ie-10&quot;&gt;IE10 Detection&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 05 Jul 2015 23:36:35 +0530</pubDate>
+        <link>http://kshirish.github.io/jekyll/update/2015/07/05/about-conditional-comments.html</link>
+        <guid isPermaLink="true">http://kshirish.github.io/jekyll/update/2015/07/05/about-conditional-comments.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
     
   </channel>
 </rss>
