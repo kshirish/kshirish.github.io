@@ -2,7 +2,7 @@
 layout: post
 title:  "Conditional comments!"
 date:   2015-07-05 18:06:35
-categories: jekyll update
+categories: html
 ---
 
 To keep it short - IE doesn't walk along well with other modern web browsers. Many features of `HTML5` and `CSS3` are either partially implemented or not provided at all. See the [comparison](https://html5test.com/compare/browser/ie-9.html) for yourself. 
