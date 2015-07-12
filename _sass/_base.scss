@@ -97,8 +97,8 @@ a {
     }
 
     &:hover {
-        color: $text-color;
-        text-decoration: underline;
+        color: $background-page-color;
+        text-decoration: none;
     }
 }
 
