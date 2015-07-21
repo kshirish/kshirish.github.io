@@ -373,6 +373,59 @@ This method creates a Symbol in a “global Symbol registry”.</p>
 <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">([</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">].</span><span class="nx">values</span><span class="p">())</span> <span class="c1">// [ &#39;a&#39;, &#39;b&#39; ]</span>
 <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">([</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">].</span><span class="nx">entries</span><span class="p">())</span> <span class="c1">// [ [ 0, &#39;a&#39; ], [ 1, &#39;b&#39; ] ]</span></code></pre></div>
 
+<h1 id="now-the-much-awaited---generators">Now the much awaited - Generators</h1>
+<blockquote>
+  <p>They are mystical, nobody have seen them but some people say that they looks like a function though do not 
+behave like them. Well, that’s strange. Let me tell you the long story short. With ES6 generators, we 
+have a different kind of function, which may be paused in the middle, one or many times, and resumed later, 
+allowing other code to run during these paused periods. So they kind of use <code>yield</code> keyword to stop where ever 
+they want ( like a <code>debugger</code> in Chrome ). Let’s see that in action.</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="o">*</span><span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="k">yield</span> <span class="s2">&quot;foo&quot;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">it</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">();</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> 	<span class="c1">// reutrns { done: false, value: &quot;foo&quot; }</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>     <span class="c1">// prints x as NaN and returns { done: true, value: undefined }</span>
+<span class="c1">// now once all the yields are done </span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>    <span class="c1">//  returns { done: true, value: undefined }</span>
+
+<span class="kd">function</span> <span class="o">*</span><span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">yield</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="k">yield</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">it</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">();</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { value:1, done:false }</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { value:2, done:false }</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { value:3, done:false }</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { value:4, done:false }</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { value:5, done:false }</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { value:undefined, done:true }</span></code></pre></div>
+
+<blockquote>
+  <p>Till now we have only seen <code>Generators</code> yielding something everytime, but there is more to it - you can talk too.</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="o">*</span><span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="k">yield</span> <span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+    <span class="kd">var</span> <span class="nx">z</span> <span class="o">=</span> <span class="k">yield</span> <span class="p">(</span><span class="nx">y</span> <span class="o">/</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">z</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">it</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">(</span> <span class="mi">5</span> <span class="p">);</span>
+
+<span class="c1">// note: not sending anything into `next()` here</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>       <span class="c1">// { value:6, done:false }</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span> <span class="mi">12</span> <span class="p">);</span>   <span class="c1">// { value:8, done:false }</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span> <span class="mi">13</span> <span class="p">);</span>   <span class="c1">// { value:42, done:true }</span></code></pre></div>
+
 
   </article>
 
