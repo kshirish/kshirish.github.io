@@ -36,7 +36,7 @@ categories: js
 
 ### List all the sockets
 {% highlight javascript %}
-    io.sockets.sockets
+    io.sockets.sockets  /** array of sockets **/
 {% endhighlight %}
 
 ### A few more tips
