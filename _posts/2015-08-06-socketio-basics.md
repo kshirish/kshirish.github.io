@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "SocketIo basics!"
+title:  "Socketio basics!"
 date:   2015-08-06 20:06:35
 categories: js
 ---
 
 ## On Client Side
-{% highlight js %}
+{% highlight javascript %}
     // create a socket 
     // if url is not provided, then it connects to the default existing server  
     var socket = io(url);
@@ -21,7 +21,7 @@ categories: js
     });
 {% endhighlight %}
  
-{% highlight js %}
+{% highlight javascript %}
     // existing events for socket object
     socket.on('connect', function() { /** when socket connects **/ });
     socket.on('error', function() { /** error occured **/ });
@@ -30,17 +30,17 @@ categories: js
 {% endhighlight %}
 
 ## On Server Side
-{% highlight js %}
+{% highlight javascript %}
     io.on('connection', function(socket) { /** a new socket connects **/ });
 {% endhighlight %}
 
-{% highlight js %}
-    // list all the sockets
+### List all the sockets
+{% highlight javascript %}
     io.sockets.sockets
 {% endhighlight %}
 
 ### A few more tips
-{% highlight js %}
+{% highlight javascript %}
 // sending to sender-client only
  socket.emit('message', "this is a test");
 
