@@ -62,7 +62,7 @@
   </header>
 
   <article class="post-content">
-    <h2 id="on-client-side">On Client Side</h2>
+    <h3 id="on-client-side">On Client Side</h3>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// create a socket </span>
     <span class="c1">// if url is not provided, then it connects to the default existing server  </span>
@@ -83,39 +83,108 @@
     <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;disconnect&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/** when socket disconnects **/</span> <span class="p">});</span>
     <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;reconnect&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/** when socket reconnects **/</span> <span class="p">});</span></code></pre></div>
 
-<h2 id="on-server-side">On Server Side</h2>
+<h3 id="on-server-side">On Server Side</h3>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">socket</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/** a new socket connects **/</span> <span class="p">});</span></code></pre></div>
 
 <h3 id="list-all-the-sockets">List all the sockets</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">sockets</span>  <span class="cm">/** socket array **/</span></code></pre></div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">sockets</span>  <span class="cm">/** array of sockets **/</span></code></pre></div>
 
-<h3 id="a-few-more-tips">A few more tips</h3>
+<h3 id="namespace">Namespace</h3>
+<blockquote>
+  <p>The path of a socket
+default namespace : <code>/</code></p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// emits</span>
+    <span class="nx">io</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;some event&#39;</span><span class="p">,</span> <span class="s1">&#39;this is a message&#39;</span><span class="p">);</span>
+    <span class="c1">// captures</span>
+    <span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">socket</span><span class="p">){</span>
+    	<span class="cm">/** a socket connected **/</span>
+    <span class="p">});</span></code></pre></div>
+
+<h3 id="custom-namespace">Custom namespace</h3>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// create a custom namespace on server side</span>
+    <span class="kd">var</span> <span class="nx">customNameSpace</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">of</span><span class="p">(</span><span class="s1">&#39;/my-custom-namespace&#39;</span><span class="p">);</span>
+    
+    <span class="c1">// emits</span>
+    <span class="nx">customNameSpace</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;some event&#39;</span><span class="p">,</span> <span class="s1">&#39;this is a message&#39;</span><span class="p">);</span>
+    <span class="c1">// captures</span>
+    <span class="nx">customNameSpace</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">socket</span><span class="p">){</span>
+    	<span class="cm">/** a socket connected **/</span>
+    <span class="p">});</span></code></pre></div>
+
+<h3 id="connect-to-a-namespace-on-client-side">Connect to a namespace on client side</h3>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;/my-custom-namespace&#39;</span><span class="p">);</span></code></pre></div>
+
+<h3 id="room">Room</h3>
+<blockquote>
+  <p>Within each namespace, you can also define channels that sockets can join and leave.</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// join a `room`</span>
+    <span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">socket</span><span class="p">){</span>
+      <span class="nx">socket</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;some room&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+    
+    <span class="c1">// leave a `room`</span>
+    <span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">socket</span><span class="p">){</span>
+      <span class="nx">socket</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;some room&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+    
+    <span class="c1">// broadcast to entire `room`</span>
+    <span class="nx">io</span><span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="s1">&#39;some room&#39;</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;some event&#39;</span><span class="p">);</span>
+    <span class="c1">// or</span>
+    <span class="nx">io</span><span class="p">.</span><span class="k">in</span><span class="p">(</span><span class="s1">&#39;some room&#39;</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;some event&#39;</span><span class="p">);</span></code></pre></div>
+
+<h3 id="the-default-room">The Default room</h3>
+<blockquote>
+  <p>Each Socket in Socket.IO is identified by a unique identifier Socket#id
+and automatically joins a room identified by this id.</p>
+</blockquote>
+
+<h3 id="debugging">Debugging</h3>
+
+<blockquote>
+  <p>On client side (browsers)</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">localStorage</span><span class="p">.</span><span class="nx">debug</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span><span class="p">;</span></code></pre></div>
+
+<blockquote>
+  <p>On server side (node)</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span> <span class="nx">DEBUG</span><span class="o">=*</span> <span class="nx">node</span> <span class="nx">yourfile</span><span class="p">.</span><span class="nx">js</span></code></pre></div>
+
+<h3 id="cheatsheet">Cheatsheet</h3>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// sending to sender-client only</span>
- <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s2">&quot;this is a test&quot;</span><span class="p">);</span>
-
- <span class="c1">// sending to all clients, include sender</span>
- <span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s2">&quot;this is a test&quot;</span><span class="p">);</span>
-
- <span class="c1">// sending to all clients except sender</span>
- <span class="nx">socket</span><span class="p">.</span><span class="nx">broadcast</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s2">&quot;this is a test&quot;</span><span class="p">);</span>
-
- <span class="c1">// sending to all clients in &#39;game&#39; room(channel) except sender</span>
- <span class="nx">socket</span><span class="p">.</span><span class="nx">broadcast</span><span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="s1">&#39;game&#39;</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;nice game&#39;</span><span class="p">);</span>
-
- <span class="c1">// sending to all clients in &#39;game&#39; room(channel), include sender</span>
- <span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="k">in</span><span class="p">(</span><span class="s1">&#39;game&#39;</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;cool game&#39;</span><span class="p">);</span>
-
- <span class="c1">// sending to sender client, only if they are in &#39;game&#39; room(channel)</span>
- <span class="nx">socket</span><span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="s1">&#39;game&#39;</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;enjoy the game&#39;</span><span class="p">);</span>
-
- <span class="c1">// sending to all clients in namespace &#39;myNamespace&#39;, include sender</span>
- <span class="nx">io</span><span class="p">.</span><span class="nx">of</span><span class="p">(</span><span class="s1">&#39;myNamespace&#39;</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;gg&#39;</span><span class="p">);</span>
-
- <span class="c1">// sending to individual socketid</span>
- <span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="nx">socketid</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;for your eyes only&#39;</span><span class="p">);</span></code></pre></div>
+     <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s2">&quot;this is a test&quot;</span><span class="p">);</span>
+    
+    <span class="c1">// sending to all clients, include sender</span>
+    <span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s2">&quot;this is a test&quot;</span><span class="p">);</span>
+    
+    <span class="c1">// sending to all clients except sender</span>
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">broadcast</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s2">&quot;this is a test&quot;</span><span class="p">);</span>
+    
+    <span class="c1">// sending to all clients in &#39;game&#39; room(channel) except sender</span>
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">broadcast</span><span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="s1">&#39;game&#39;</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;nice game&#39;</span><span class="p">);</span>
+    
+    <span class="c1">// sending to all clients in &#39;game&#39; room(channel), include sender</span>
+    <span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="k">in</span><span class="p">(</span><span class="s1">&#39;game&#39;</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;cool game&#39;</span><span class="p">);</span>
+    
+    <span class="c1">// sending to sender client, only if they are in &#39;game&#39; room(channel)</span>
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">to</span><span class="p">(</span><span class="s1">&#39;game&#39;</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;enjoy the game&#39;</span><span class="p">);</span>
+    
+    <span class="c1">// sending to all clients in namespace &#39;myNamespace&#39;, include sender</span>
+    <span class="nx">io</span><span class="p">.</span><span class="nx">of</span><span class="p">(</span><span class="s1">&#39;myNamespace&#39;</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;gg&#39;</span><span class="p">);</span>
+    
+    <span class="c1">// sending to individual socketid</span>
+    <span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">socket</span><span class="p">(</span><span class="nx">socketid</span><span class="p">).</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;for your eyes only&#39;</span><span class="p">);</span></code></pre></div>
 
 
   </article>

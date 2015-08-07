@@ -106,7 +106,7 @@ categories: js
     io.in('some room').emit('some event');
 {% endhighlight %}
 
-### The Default `room`
+### The Default room
 > Each Socket in Socket.IO is identified by a unique identifier Socket#id
 and automatically joins a room identified by this id.
 
@@ -114,14 +114,14 @@ and automatically joins a room identified by this id.
 
 > On client side (browsers)
 
-{% highlight shell %}
+{% highlight javascript %}
 
     localStorage.debug = '*';
 {% endhighlight %}
 
 > On server side (node)
 
-{% highlight shell %}
+{% highlight javascript %}
 
     $ DEBUG=* node yourfile.js
 {% endhighlight %}

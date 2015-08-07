@@ -9,6 +9,7 @@ permalink: /about/
 I am a learner, an aspiring writer and a lot many things. Writing is my exclusive rehab. We mutually make ourselves better, and there is no reason that one shouldn't [write daily](http://zenhabits.net/write-daily/).
 
 Find me on:
+
 - [Twitter](http://twitter.com/kshiri_)
 - [Github](https://github.com/kshirish)
 - [Medium](https://medium.com/@geetkesath)
