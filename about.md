@@ -4,7 +4,12 @@ title: About
 permalink: /about/
 ---
 
-This blog is not my [first attempt](http://kisleyshirish.blogspot.in/) at writing, I have been doing this for a couple of years now. But now I want to take this frequent jaunt to a next level - hoping I will learn and grow better.
-Writing just doesn't acquaint you with yourself but it tends to grow you better, therefore [you should write daily](http://zenhabits.net/write-daily/)  .
+> 'Whatever you do might be insignificant, but it is very important that you do it.' - Mahatma Gandhi
 
->'Whatever you do will be insignificant, but it is very important that you do it.' - Mahatma Gandhi
+I am a learner, an aspiring writer and a lot many things. Writing is my exclusive rehab. We mutually make ourselves better, and there is no reason that one shouldn't [write daily](http://zenhabits.net/write-daily/).
+
+Find me on:
+- [Twitter](http://twitter.com/kshiri_)
+- [Github](https://github.com/kshirish)
+- [Medium](https://medium.com/@geetkesath)
+- [Blogger](http://kisleyshirish.blogspot.in/)
