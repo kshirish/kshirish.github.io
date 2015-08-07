@@ -5,7 +5,7 @@ date:   2015-08-06 20:06:35
 categories: js
 ---
 
-## On Client Side
+### On Client Side
 {% highlight javascript %}
     // create a socket 
     // if url is not provided, then it connects to the default existing server  
@@ -29,7 +29,7 @@ categories: js
     socket.on('reconnect', function() { /** when socket reconnects **/ });
 {% endhighlight %}
 
-## On Server Side
+### On Server Side
 {% highlight javascript %}
     io.on('connection', function(socket) { /** a new socket connects **/ });
 {% endhighlight %}
@@ -39,7 +39,7 @@ categories: js
     io.sockets.sockets  /** array of sockets **/
 {% endhighlight %}
 
-### namespace
+### Namespace
 > The path of a socket
 
 {% highlight javascript %}
@@ -54,9 +54,8 @@ io.on('connection', function(socket){
 });
 {% endhighlight %}
 
+### Custom namespace 
 {% highlight javascript %}
-// custom namespace : `/my-custom-namespace`
-
 // create a custom namespace on server side
 var customNameSpace = io.of('/my-custom-namespace');
 
@@ -68,12 +67,12 @@ customNameSpace.on('connection', function(socket){
 });
 {% endhighlight %}
 
+### Connect to a namespace on client side
 {% highlight javascript %}
-// connect to a namespace on client side
 var socket = io('/my-custom-namespace');
 {% endhighlight %}
 
-### room
+### Room
 > Within each namespace, you can also define channels that sockets can join and leave.
 
 {% highlight javascript %}
@@ -100,12 +99,12 @@ io.in('some room').emit('some event');
 ### Debugging
 
 > On client side (browsers)
-{% highlight %}
+{% highlight shell %}
 // localStorage.debug = '*';
 {% endhighlight %}
 
 > On server side (node)
-{% highlight %}
+{% highlight shell %}
 // $ DEBUG=* node yourfile.js
 {% endhighlight %}
 
@@ -114,26 +113,26 @@ io.in('some room').emit('some event');
 // sending to sender-client only
  socket.emit('message', "this is a test");
 
- // sending to all clients, include sender
- io.sockets.emit('message', "this is a test");
+// sending to all clients, include sender
+io.sockets.emit('message', "this is a test");
 
- // sending to all clients except sender
- socket.broadcast.emit('message', "this is a test");
+// sending to all clients except sender
+socket.broadcast.emit('message', "this is a test");
 
- // sending to all clients in 'game' room(channel) except sender
- socket.broadcast.to('game').emit('message', 'nice game');
+// sending to all clients in 'game' room(channel) except sender
+socket.broadcast.to('game').emit('message', 'nice game');
 
- // sending to all clients in 'game' room(channel), include sender
- io.sockets.in('game').emit('message', 'cool game');
+// sending to all clients in 'game' room(channel), include sender
+io.sockets.in('game').emit('message', 'cool game');
 
- // sending to sender client, only if they are in 'game' room(channel)
- socket.to('game').emit('message', 'enjoy the game');
+// sending to sender client, only if they are in 'game' room(channel)
+socket.to('game').emit('message', 'enjoy the game');
 
- // sending to all clients in namespace 'myNamespace', include sender
- io.of('myNamespace').emit('message', 'gg');
+// sending to all clients in namespace 'myNamespace', include sender
+io.of('myNamespace').emit('message', 'gg');
 
- // sending to individual socketid
- io.sockets.socket(socketid).emit('message', 'for your eyes only');
+// sending to individual socketid
+io.sockets.socket(socketid).emit('message', 'for your eyes only');
 {% endhighlight %}
 
 
