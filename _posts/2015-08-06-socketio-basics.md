@@ -39,7 +39,77 @@ categories: js
     io.sockets.sockets  /** array of sockets **/
 {% endhighlight %}
 
-### A few more tips
+### namespace
+> The path of a socket
+
+{% highlight javascript %}
+// default namespace : `/`
+
+// emits
+io.emit('some event', 'this is a message');
+
+// captures
+io.on('connection', function(socket){
+	/** a socket connected **/
+});
+{% endhighlight %}
+
+{% highlight javascript %}
+// custom namespace : `/my-custom-namespace`
+
+// create a custom namespace on server side
+var customNameSpace = io.of('/my-custom-namespace');
+
+// emits
+customNameSpace.emit('some event', 'this is a message');
+// captures
+customNameSpace.on('connection', function(socket){
+	/** a socket connected **/
+});
+{% endhighlight %}
+
+{% highlight javascript %}
+// connect to a namespace on client side
+var socket = io('/my-custom-namespace');
+{% endhighlight %}
+
+### room
+> Within each namespace, you can also define channels that sockets can join and leave.
+
+{% highlight javascript %}
+// join a `room`
+io.on('connection', function(socket){
+  socket.join('some room');
+});
+
+// leave a `room`
+io.on('connection', function(socket){
+  socket.join('some room');
+});
+
+// broadcast to entire `room`
+io.to('some room').emit('some event');
+// or
+io.in('some room').emit('some event');
+{% endhighlight %}
+
+### The Default `room`
+> Each Socket in Socket.IO is identified by a unique identifier Socket#id.
+> Each socket automatically joins a room identified by this id.
+
+### Debugging
+
+> On client side (browsers)
+{% highlight %}
+// localStorage.debug = '*';
+{% endhighlight %}
+
+> On server side (node)
+{% highlight %}
+// $ DEBUG=* node yourfile.js
+{% endhighlight %}
+
+### Cheatsheet
 {% highlight javascript %}
 // sending to sender-client only
  socket.emit('message', "this is a test");
@@ -65,4 +135,14 @@ categories: js
  // sending to individual socketid
  io.sockets.socket(socketid).emit('message', 'for your eyes only');
 {% endhighlight %}
+
+
+
+
+
+
+
+
+
+
 
