@@ -241,7 +241,7 @@ And similarly, `child_changed` and `child_removed`.
 
 #### Check out more 
 
-- (Docs)[https://www.firebase.com/docs/]
-- (API)[https://www.firebase.com/docs/web/api/]
+- [Docs](https://www.firebase.com/docs/)
+- [API](https://www.firebase.com/docs/web/api/)
 
 
