@@ -3,6 +3,7 @@ layout: post
 title:  "Promises ES6!"
 date:   2015-07-20 15:16:30
 categories: js
+author: kshirish
 ---
 
 # Promises in ES6

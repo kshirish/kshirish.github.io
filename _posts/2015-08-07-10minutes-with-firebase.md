@@ -3,6 +3,7 @@ layout: post
 title:  "10 minutes with Firebase"
 date:   2015-08-07 20:36:15
 categories: js
+author: kshirish
 ---
 
 Firebase is available as both node module and browser side script.

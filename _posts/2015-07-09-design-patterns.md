@@ -3,6 +3,7 @@ layout: post
 title:  "Scary design patterns"
 date:   2015-07-09 23:06:35
 categories: js
+author: kshirish
 ---
 
 Design patterns are scary, though they gets lighter when you see the code.
