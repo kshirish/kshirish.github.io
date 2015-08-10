@@ -2,6 +2,7 @@
 layout: post
 title:  "Socketio basics!"
 date:   2015-08-06 20:06:35
+author: kshirish
 categories: js
 ---
 
