@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>K Shirish</title>
-  <meta name="description" content="K Shirish is a learner, currently searching life in machines and wants to look into the eyes of his fears one day.
-">
+  <title>Chalk | Node module</title>
+  <meta name="description" content="">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://kshirish.github.io/">
+  <link rel="canonical" href="http://kshirish.github.io/nodejs/2015/08/18/chalk.html">
   <link rel="alternate" type="application/rss+xml" title="K Shirish" href="http://kshirish.github.io/feed.xml" />
 </head>
 
@@ -55,106 +54,56 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Chalk | Node module</h1>
+    <p class="post-meta">Aug 18, 2015 • kshirish</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Aug 28, 2015</span>
+  <article class="post-content">
+    <h4 id="first-things-first-do-npm-install-chalk">First things first, do <code>npm install chalk</code></h4>
 
-        <h2>
-          <a class="post-link" href="/nodejs/2015/08/28/configstore.html">Configstore | Node module</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 18, 2015</span>
+<h4 id="basic-usage">Basic usage</h4>
 
-        <h2>
-          <a class="post-link" href="/nodejs/2015/08/18/chalk.html">Chalk | Node module</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 13, 2015</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">chalk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chalk&#39;</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>  <span class="nx">chalk</span><span class="p">.</span><span class="nx">underline</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; World !&#39;</span><span class="p">)</span>  <span class="p">);</span></code></pre></div>
 
-        <h2>
-          <a class="post-link" href="/nodejs/2015/08/13/rsvp.html">RSVP | Node module</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 8, 2015</span>
+<h4 id="chaining">Chaining</h4>
 
-        <h2>
-          <a class="post-link" href="/js/2015/08/08/10minutes-with-firebase.html">10 minutes with Firebase</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 7, 2015</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>  <span class="nx">chalk</span><span class="p">.</span><span class="nx">red</span><span class="p">.</span><span class="nx">bgWhite</span><span class="p">.</span><span class="nx">bold</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>  <span class="p">);</span></code></pre></div>
 
-        <h2>
-          <a class="post-link" href="/js/2015/08/07/socketio-basics.html">Socketio basics!</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 21, 2015</span>
+<h4 id="see-all-styles-in-action">See all styles in action</h4>
 
-        <h2>
-          <a class="post-link" href="/js/2015/07/21/introduction-to-mocha.html">Introduction to Mocha!</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 20, 2015</span>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">chalk</span><span class="p">.</span><span class="nx">styles</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">style</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span> <span class="nx">style</span> <span class="o">!==</span> <span class="s2">&quot;reset&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">chalk</span><span class="p">[</span><span class="nx">style</span><span class="p">](</span><span class="nx">style</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">);</span>
+      <span class="p">}</span>
+  <span class="p">});</span></code></pre></div>
 
-        <h2>
-          <a class="post-link" href="/js/2015/07/20/promises-es6.html">Promises ES6!</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 18, 2015</span>
+<p>Check out <a href="https://www.npmjs.com/package/chalk">more</a></p>
 
-        <h2>
-          <a class="post-link" href="/js/2015/07/18/meet-es6.html">Meet ES6</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 10, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/js/2015/07/10/design-patterns.html">Scary design patterns</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 7, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/poem/2015/07/07/he.html">He</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 5, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/html/2015/07/05/about-conditional-comments.html">Conditional comments!</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </article>
 
 </div>
 
+<!-- Disqus comment threads -->
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'kshirish';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<!-- Disqus comment threads -->
       </div>
     </div>
 
