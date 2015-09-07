@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>He</title>
+  <title>JSON mask | Node module</title>
   <meta name="description" content="">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://kshirish.github.io/poem/2015/07/07/he.html">
+  <link rel="canonical" href="http://kshirish.github.io/nodejs/2015/09/08/json-mask.html">
   <link rel="alternate" type="application/rss+xml" title="K Shirish" href="http://kshirish.github.io/feed.xml" />
 </head>
 
@@ -57,42 +57,45 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">He</h1>
-    <p class="post-meta">Jul 7, 2015 • kshirish</p>
+    <h1 class="post-title">JSON mask | Node module</h1>
+    <p class="post-meta">Sep 8, 2015 • kshirish</p>
   </header>
 
   <article class="post-content">
-    <p>He is unaware of flipkart’s newly launched gadgets</p>
+    <p>This module sort of provides some selector to choose portions from a JSON object. These can be helpful in lot ways i.e. when you need to pass a selective data from database to browser.</p>
 
-<p>Probably never heard of barbeque</p>
+<p>You can see examples from twitter REST api which yields response based on queries.</p>
 
-<p>He is too busy pleasing his lords</p>
+<h4 id="first-things-first-do-npm-install-json-mask">First things first, do <code>npm install json-mask</code></h4>
 
-<p>making his way towards a few pennies</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">jMask</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;json-mask&#39;</span><span class="p">);</span></code></pre></div>
 
-<p>with shaking hands which cannot differentiate</p>
+<h3 id="supported-selectors">Supported selectors</h3>
 
-<p>between pizza and burger.</p>
+<ul>
+  <li><code>a,b,c</code> comma-separated list will select multiple fields</li>
+  <li><code>a/b/c</code> path will select a field from its parent</li>
+  <li><code>a(b,c)</code> sub-selection will select many fields from a parent</li>
+  <li><code>a/*/c</code> the star * wildcard will select all items in a field</li>
+</ul>
 
-<p>You see, his lords are toiling under aircondition</p>
+<p><em>Based on description <a href="https://github.com/nemtsov/json-mask">here</a></em></p>
 
-<p>in the midday of this savage afternoon.</p>
+<h3 id="basic-usage">Basic Usage</h3>
 
-<p>His eyes are a bit fuzzy</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="p">{</span><span class="nx">first</span><span class="o">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="nx">middle</span><span class="o">:</span> <span class="s1">&#39;williams&#39;</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span><span class="s1">&#39;doe&#39;</span><span class="p">},</span> <span class="nx">age</span><span class="o">:</span><span class="mi">33</span><span class="p">,</span> <span class="nx">address</span><span class="o">:</span> <span class="p">{</span><span class="nx">state</span><span class="o">:</span> <span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="nx">city</span><span class="o">:</span> <span class="s1">&#39;ny&#39;</span><span class="p">}}</span>
 
-<p>cannot see the gold in the world’s eyes.</p>
+    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">first</span><span class="o">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span> <span class="s1">&#39;doe&#39;</span> <span class="p">}</span> <span class="p">}</span>
 
-<p>the anosmic brute never judged a man</p>
+    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">&#39;name/first,address/city&#39;</span><span class="p">)</span>
+    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">first</span><span class="o">:</span> <span class="s1">&#39;john&#39;</span> <span class="p">},</span>  <span class="nx">address</span><span class="o">:</span> <span class="p">{</span><span class="nx">city</span><span class="o">:</span> <span class="s1">&#39;ny&#39;</span><span class="p">}}</span>
 
-<p>by his deodrant.</p>
+    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">&#39;name(last,middle)&#39;</span><span class="p">)</span>
+    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">last</span><span class="o">:</span> <span class="s1">&#39;doe&#39;</span><span class="p">,</span> <span class="nx">middle</span><span class="o">:</span> <span class="s1">&#39;williams&#39;</span> <span class="p">}</span> <span class="p">}</span>
 
-<p>How careless a human can be?</p>
-
-<p>How a person can be so unworldy?</p>
-
-<p>You’re right, these monkey-men need to be</p>
-
-<p>supervised to keep in order.</p>
+    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">&#39;name/first,age&#39;</span><span class="p">)</span>
+    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">first</span><span class="o">:</span> <span class="s1">&#39;john&#39;</span> <span class="p">},</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">33</span> <span class="p">}</span></code></pre></div>
 
 
   </article>
