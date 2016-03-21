@@ -1,2 +1,2 @@
 # kshirish.github.io
-My Blog.
+My blog.
