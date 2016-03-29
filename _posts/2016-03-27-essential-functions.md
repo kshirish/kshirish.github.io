@@ -140,6 +140,45 @@ categories: js
 
 {% endhighlight %}
 
+### compose
+> Returns a complex function, which will be composed out of given functions i.e. a, b and c. 
+> Expression - a(b(c(x))) - with x being the starting value. 
+> 
+
+#### implementation
+{% highlight javascript %}
+  var compose = function () {
+
+    var fns = [].slice.apply(arguments);
+    var val;  
+
+    return function() {
+
+      var tmp = [].slice.apply(arguments);
+
+      for(var i = 0; i < fns.length; i++) {
+        tmp = [fns[i].apply(this, tmp)];
+      }
+
+      return tmp[0];
+    };
+  };
+{% endhighlight %}
+
+#### usage
+{% highlight javascript %}
+  var greet = function(name) {
+    return 'Hi, ' + name;
+  };
+
+  var getName = function(first, middle, last) {
+    return first + ' ' + middle + ' ' + last;
+  };
+
+  var sayHi = compose(getName, greet, function(r) {console.log(r);});
+  sayHi('ram', 'gopal', 'verma');   // Hi, ram gopal verma
+{% endhighlight %}
+
 ### References
 - [David Walsh](https://davidwalsh.name/essential-javascript-functions)
 

@@ -194,6 +194,45 @@
   <span class="kd">var</span> <span class="nx">x1</span> <span class="o">=</span> <span class="nx">sumFour</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// fully applied</span>
   <span class="kd">var</span> <span class="nx">x2</span> <span class="o">=</span> <span class="nx">sumFour</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">)(</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// fully applied</span></code></pre></div>
 
+<h3 id="compose">compose</h3>
+<blockquote>
+  <p>Returns a complex function, which will be composed out of given functions i.e. a, b and c. 
+Expression - a(b(c(x))) - with x being the starting value.</p>
+
+</blockquote>
+
+<h4 id="implementation-4">implementation</h4>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">compose</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">fns</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">val</span><span class="p">;</span>  
+
+    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+      <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+
+      <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">fns</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="nx">fns</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">tmp</span><span class="p">)];</span>
+      <span class="p">}</span>
+
+      <span class="k">return</span> <span class="nx">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="p">};</span>
+  <span class="p">};</span></code></pre></div>
+
+<h4 id="usage-4">usage</h4>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;Hi, &#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">middle</span><span class="p">,</span> <span class="nx">last</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">first</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">middle</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">last</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">sayHi</span> <span class="o">=</span> <span class="nx">compose</span><span class="p">(</span><span class="nx">getName</span><span class="p">,</span> <span class="nx">greet</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">r</span><span class="p">);});</span>
+  <span class="nx">sayHi</span><span class="p">(</span><span class="s1">&#39;ram&#39;</span><span class="p">,</span> <span class="s1">&#39;gopal&#39;</span><span class="p">,</span> <span class="s1">&#39;verma&#39;</span><span class="p">);</span>   <span class="c1">// Hi, ram gopal verma</span></code></pre></div>
+
 <h3 id="references">References</h3>
 <ul>
   <li><a href="https://davidwalsh.name/essential-javascript-functions">David Walsh</a></li>
