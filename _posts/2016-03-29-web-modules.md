@@ -26,63 +26,65 @@ Characteristics:
 #### Basic example
 {% highlight javascript %}
 
-    // Works sync and hurts page performance
-    var Animal = require('Animal');
-    var zoo = [];
+// Works sync and hurts page performance
+var Animal = require('Animal');
+var zoo = [];
 
-    // exporting `Zoo` module
-    exports.Zoo = function() {
-        return {
-            getAnimalsCount: function() {
-                return zoo.length;
-            },
-            addAnimal: function(name) {
-                // Will give error, if require were async
-                zoo.push(new Animal(name));
-            }
-        };
+// exporting `Zoo` module
+exports.Zoo = function() {
+    return {
+        getAnimalsCount: function() {
+            return zoo.length;
+        },
+        addAnimal: function(name) {
+            // Will give error, if require were async
+            zoo.push(new Animal(name));
+        }
     };
+};
 {% endhighlight %}
 
 ### AMD - Asynchronous Module Definition
-
-A JavaScript specification that defines an API so that we can
-encapsulate a piece of code into a useful unit and also export it 
-to other units of code to use.
 
 > AMD specification is implemented by Dojo Toolkit, RequireJS etc.
 
 #### Basic exmaple
 {% highlight javascript %}
 
-    // Works async
-    define('Zoo', ['Animal'], function(Animal) {
-        var Animal = require('Animal');
-        var zoo = [];
-        
-        // returning `Zoo` module
-        return {
-            getAnimalsCount: function() {
-                return zoo.length;
-            },
-            addAnimal: function(name) {
-                zoo.push(new Animal(name));
-            }
-        };
-    })
+// Works async
+define('Zoo', ['Animal'], function(Animal) {
+    var Animal = require('Animal');
+    var zoo = [];
+    
+    // returning `Zoo` module
+    return {
+        getAnimalsCount: function() {
+            return zoo.length;
+        },
+        addAnimal: function(name) {
+            zoo.push(new Animal(name));
+        }
+    };
+})
 {% endhighlight %}
 
 #### Conditional loading example
 {% highlight javascript %}
-    define('foo', function(require) {
-        if (false) {
-            require(['https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'], function () {
-                console.log(jQuery);
-            });
-        }
-    });
-    require(['foo']);
+define('foo', function(require) {
+    if (false) {
+        require(['https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'], function () {
+            console.log(jQuery);
+        });
+    }
+});
+require(['foo']);
 {% endhighlight %}
+
+#### Issues
+For the project of medium complexity, HTTP overheads for asynchronous downloading of single Javascript files are dramatic. Therefore, `RequireJS`  advises developers to proceed with a bundling operation of the various modules using their command line tool.
+
+#### Bundling process
+The process parses the files begining at a specified entry-point to reconstruct the dependencies on the basis of the `define()` calls that it finds along the way. It is then able to organize and concatenate all of the necessary files in a single file i.e. `bundle.js` which we will then be included in our HTML.
 
 ### UMD - Universal Module Definition
 Since CommonJS and AMD styles have both been equally popular. This has brought about the push for a *universal* pattern that supports both styles.
@@ -114,10 +116,49 @@ Since CommonJS and AMD styles have both been equally popular. This has brought a
 }));
 {% endhighlight %}
 
+### Browserify
+Unlike `RequireJS`, `Browserify` allows you to write your client-side application making use of `CommonJS`’s synchronous loading (using `Node.js`). How is this possible?
+
+- Bundling similar to require.js `browserify app.js --outfile bundle.js`
+
+{% highlight javascript %}
+    
+// let's take a look at the generated `bundle.js`
+function debundle(data) {
+  var cache = {};
+  var require = function(name) {
+    if (cache[name]) { return cache[name]; }
+    var module = cache[name] = { exports: {} };
+    data.modules[name](require, module);
+    return module.exports;
+  };
+  return require(data.entryPoint);
+}
+
+debundle({
+  entryPoint: "./app",
+  modules: {
+    "./app": function(require, module) {
+      var calculator = require('./calculator');
+      console.log(calculator.sum(1, 2));
+    },
+    "./calculator": function(require, module) {
+      module.exports = {
+        sum: function(a, b) { return a + b; }
+      };
+    }
+  }
+});
+{% endhighlight %}
+
+The content of every module, including the entry-point, can be requested during runtime by being passed to `debundle()` which implements the `module.exports/require` - `CommonJS` mechanism on the client side.
+
+
 #### References
 - [Require JS](http://requirejs.org/docs/whyamd.html)
 - [Require JS](http://requirejs.org/docs/why.html)
 - [Addy Osmani](https://addyosmani.com/writing-modular-js/)
+- [Lean Panda](http://www.leanpanda.com/blog/2015/06/28/amd-requirejs-commonjs-browserify/)
 
 
 

@@ -86,27 +86,23 @@
 <h4 id="basic-example">Basic example</h4>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Works sync and hurts page performance</span>
-    <span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;Animal&#39;</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">zoo</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;Animal&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">zoo</span> <span class="o">=</span> <span class="p">[];</span>
 
-    <span class="c1">// exporting `Zoo` module</span>
-    <span class="nx">exports</span><span class="p">.</span><span class="nx">Zoo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">{</span>
-            <span class="nx">getAnimalsCount</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="nx">zoo</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-            <span class="p">},</span>
-            <span class="nx">addAnimal</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-                <span class="c1">// Will give error, if require were async</span>
-                <span class="nx">zoo</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">Animal</span><span class="p">(</span><span class="nx">name</span><span class="p">));</span>
-            <span class="p">}</span>
-        <span class="p">};</span>
-    <span class="p">};</span></code></pre></div>
+<span class="c1">// exporting `Zoo` module</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">Zoo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">getAnimalsCount</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">zoo</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="nx">addAnimal</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Will give error, if require were async</span>
+            <span class="nx">zoo</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">Animal</span><span class="p">(</span><span class="nx">name</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">};</span></code></pre></div>
 
 <h3 id="amd---asynchronous-module-definition">AMD - Asynchronous Module Definition</h3>
-
-<p>A JavaScript specification that defines an API so that we can
-encapsulate a piece of code into a useful unit and also export it 
-to other units of code to use.</p>
 
 <blockquote>
   <p>AMD specification is implemented by Dojo Toolkit, RequireJS etc.</p>
@@ -115,31 +111,37 @@ to other units of code to use.</p>
 <h4 id="basic-exmaple">Basic exmaple</h4>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Works async</span>
-    <span class="nx">define</span><span class="p">(</span><span class="s1">&#39;Zoo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Animal&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Animal</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;Animal&#39;</span><span class="p">);</span>
-        <span class="kd">var</span> <span class="nx">zoo</span> <span class="o">=</span> <span class="p">[];</span>
-        
-        <span class="c1">// returning `Zoo` module</span>
-        <span class="k">return</span> <span class="p">{</span>
-            <span class="nx">getAnimalsCount</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="nx">zoo</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-            <span class="p">},</span>
-            <span class="nx">addAnimal</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">zoo</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">Animal</span><span class="p">(</span><span class="nx">name</span><span class="p">));</span>
-            <span class="p">}</span>
-        <span class="p">};</span>
-    <span class="p">})</span></code></pre></div>
+<span class="nx">define</span><span class="p">(</span><span class="s1">&#39;Zoo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Animal&#39;</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Animal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;Animal&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">zoo</span> <span class="o">=</span> <span class="p">[];</span>
+    
+    <span class="c1">// returning `Zoo` module</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">getAnimalsCount</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">zoo</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="nx">addAnimal</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">zoo</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">Animal</span><span class="p">(</span><span class="nx">name</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">})</span></code></pre></div>
 
 <h4 id="conditional-loading-example">Conditional loading example</h4>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">require</span><span class="p">([</span><span class="s1">&#39;https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">jQuery</span><span class="p">);</span>
-            <span class="p">});</span>
-        <span class="p">}</span>
-    <span class="p">});</span>
-    <span class="nx">require</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span><span class="p">]);</span></code></pre></div>
+    <span class="k">if</span> <span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">require</span><span class="p">([</span><span class="s1">&#39;https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js&#39;</span><span class="p">],</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">jQuery</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">require</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span><span class="p">]);</span></code></pre></div>
+
+<h4 id="issues">Issues</h4>
+<p>For the project of medium complexity, HTTP overheads for asynchronous downloading of single Javascript files are dramatic. Therefore, <code>RequireJS</code>  advises developers to proceed with a bundling operation of the various modules using their command line tool.</p>
+
+<h4 id="bundling-process">Bundling process</h4>
+<p>The process parses the files begining at a specified entry-point to reconstruct the dependencies on the basis of the <code>define()</code> calls that it finds along the way. It is then able to organize and concatenate all of the necessary files in a single file i.e. <code>bundle.js</code> which we will then be included in our HTML.</p>
 
 <h3 id="umd---universal-module-definition">UMD - Universal Module Definition</h3>
 <p>Since CommonJS and AMD styles have both been equally popular. This has brought about the push for a <em>universal</em> pattern that supports both styles.</p>
@@ -171,11 +173,48 @@ to other units of code to use.</p>
     <span class="p">}</span>
 <span class="p">}));</span></code></pre></div>
 
+<h3 id="browserify">Browserify</h3>
+<p>Unlike <code>RequireJS</code>, <code>Browserify</code> allows you to write your client-side application making use of <code>CommonJS</code>’s synchronous loading (using <code>Node.js</code>). How is this possible?</p>
+
+<ul>
+  <li>Bundling similar to require.js <code>browserify app.js --outfile bundle.js</code></li>
+</ul>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// let&#39;s take a look at the generated `bundle.js`</span>
+<span class="kd">function</span> <span class="nx">debundle</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">cache</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="kd">var</span> <span class="nx">require</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cache</span><span class="p">[</span><span class="nx">name</span><span class="p">])</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">cache</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span> <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">module</span> <span class="o">=</span> <span class="nx">cache</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">exports</span><span class="o">:</span> <span class="p">{}</span> <span class="p">};</span>
+    <span class="nx">data</span><span class="p">.</span><span class="nx">modules</span><span class="p">[</span><span class="nx">name</span><span class="p">](</span><span class="nx">require</span><span class="p">,</span> <span class="nx">module</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="k">return</span> <span class="nx">require</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">entryPoint</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">debundle</span><span class="p">({</span>
+  <span class="nx">entryPoint</span><span class="o">:</span> <span class="s2">&quot;./app&quot;</span><span class="p">,</span>
+  <span class="nx">modules</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;./app&quot;</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">calculator</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./calculator&#39;</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;./calculator&quot;</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">require</span><span class="p">,</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">sum</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="p">}</span>
+      <span class="p">};</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span></code></pre></div>
+
+<p>The content of every module, including the entry-point, can be requested during runtime by being passed to <code>debundle()</code> which implements the <code>module.exports/require</code> - <code>CommonJS</code> mechanism on the client side.</p>
+
 <h4 id="references">References</h4>
 <ul>
   <li><a href="http://requirejs.org/docs/whyamd.html">Require JS</a></li>
   <li><a href="http://requirejs.org/docs/why.html">Require JS</a></li>
   <li><a href="https://addyosmani.com/writing-modular-js/">Addy Osmani</a></li>
+  <li><a href="http://www.leanpanda.com/blog/2015/06/28/amd-requirejs-commonjs-browserify/">Lean Panda</a></li>
 </ul>
 
 
