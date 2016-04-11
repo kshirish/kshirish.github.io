@@ -66,61 +66,62 @@
 
 <h3 id="a-simple-example-dedicated-worker">A simple example (Dedicated Worker)</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// content of `worker_script.js`</span>
-  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="nx">postMessage</span><span class="p">(</span><span class="s1">&#39;Yay!&#39;</span><span class="p">);},</span> <span class="mi">6000</span><span class="p">);</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="c1">// content of `worker_script.js`</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><span class="nx">postMessage</span><span class="p">(</span><span class="s1">'Yay!'</span><span class="p">);},</span> <span class="mi">6000</span><span class="p">);</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">w</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  
+  <span class="kd">var</span> <span class="nx">w</span><span class="p">;</span>
 
   <span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">Worker</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">w</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Worker</span><span class="p">(</span><span class="s1">&#39;worker_script.js&#39;</span><span class="p">);</span>
+    <span class="nx">w</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Worker</span><span class="p">(</span><span class="s1">'worker_script.js'</span><span class="p">);</span>
 
     <span class="c1">// receives data from `worker_script.js`</span>
-    <span class="nx">w</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">w</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>      <span class="c1">// Yay!</span>
     <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
 
     <span class="c1">// in case your worker throws an error</span>
-    <span class="nx">w</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">w</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
     <span class="p">});</span>
-  <span class="p">}</span></code></pre></div>
+  <span class="p">}</span></code></pre></figure>
 
 <ul>
-  <li>A worker’s context is represented by either <code>DedicatedWorkerGlobalScope</code> or <code>SharedWorkerGlobalScope</code> object (not window).</li>
-  <li><code>Dedicated workers</code>: only accessible from the script that first spawned it</li>
-  <li><code>Shared workers</code>: can be accessed from multiple scripts.</li>
+  <li>A worker’s context is represented by either <code class="highlighter-rouge">DedicatedWorkerGlobalScope</code> or <code class="highlighter-rouge">SharedWorkerGlobalScope</code> object (not window).</li>
+  <li><code class="highlighter-rouge">Dedicated workers</code>: only accessible from the script that first spawned it</li>
+  <li><code class="highlighter-rouge">Shared workers</code>: can be accessed from multiple scripts.</li>
 </ul>
 
 <h3 id="shared-worker">Shared Worker</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// content of `shared_worker.js`</span>
-  <span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;connect&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="c1">// content of `shared_worker.js`</span>
+  <span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'connect'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
    <span class="c1">// an explicit port is opened in case of `Shared Workers`</span>
    <span class="c1">// get the port, since there might be a lot of ports </span>
     <span class="kd">var</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">ports</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-    <span class="nx">port</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">port</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
-      <span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s1">&#39;Hello Back&#39;</span><span class="p">);</span>
+      <span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s1">'Hello Back'</span><span class="p">);</span>
     <span class="p">});</span>
-  <span class="p">});</span></code></pre></div>
+  <span class="p">});</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SharedWorker</span><span class="p">(</span><span class="s2">&quot;shared_worker.js&quot;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SharedWorker</span><span class="p">(</span><span class="s2">"shared_worker.js"</span><span class="p">);</span>
 
-  <span class="nx">w</span><span class="p">.</span><span class="nx">port</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">w</span><span class="p">.</span><span class="nx">port</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
   <span class="p">});</span>
-  <span class="nx">w</span><span class="p">.</span><span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s1">&#39;How are you?&#39;</span><span class="p">);</span></code></pre></div>
+  <span class="nx">w</span><span class="p">.</span><span class="nx">port</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s1">'How are you?'</span><span class="p">);</span></code></pre></figure>
 
 <h3 id="features-available-to-workers">Features available to Workers</h3>
-<p>Due to their multi-threaded behavior, <code>web workers</code> only have access to a subset of JavaScript’s features:</p>
+<p>Due to their multi-threaded behavior, <code class="highlighter-rouge">web workers</code> only have access to a subset of JavaScript’s features:</p>
 
 <ul>
-  <li><code>navigator</code> object</li>
-  <li><code>location</code> object (read-only)</li>
+  <li><code class="highlighter-rouge">navigator</code> object</li>
+  <li><code class="highlighter-rouge">location</code> object (read-only)</li>
   <li>XMLHttpRequest</li>
-  <li><code>setTimeout()</code>/<code>clearTimeout()</code> and <code>setInterval()</code>/<code>clearInterval()</code></li>
-  <li><code>Application Cache</code></li>
-  <li>Importing external scripts using the <code>importScripts()</code> method</li>
+  <li><code class="highlighter-rouge">setTimeout()</code>/<code class="highlighter-rouge">clearTimeout()</code> and <code class="highlighter-rouge">setInterval()</code>/<code class="highlighter-rouge">clearInterval()</code></li>
+  <li><code class="highlighter-rouge">Application Cache</code></li>
+  <li>Importing external scripts using the <code class="highlighter-rouge">importScripts()</code> method</li>
   <li>Spawning other web workers</li>
 </ul>
 
@@ -128,50 +129,50 @@
 
 <ul>
   <li>DOM (it’s not thread-safe)</li>
-  <li><code>window</code> object</li>
-  <li><code>document</code> object</li>
+  <li><code class="highlighter-rouge">window</code> object</li>
+  <li><code class="highlighter-rouge">document</code> object</li>
   <li>parent object</li>
 </ul>
 
 <h3 id="loading-external-scripts">Loading External Scripts</h3>
 <p>You can load external script files or libraries into a worker. The method takes zero or more strings representing the filenames for the resources to import.</p>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">importScripts</span><span class="p">(</span><span class="s1">&#39;script1.js&#39;</span><span class="p">,</span> <span class="s1">&#39;script2.js&#39;</span><span class="p">);</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="nx">importScripts</span><span class="p">(</span><span class="s1">'script1.js'</span><span class="p">,</span> <span class="s1">'script2.js'</span><span class="p">);</span></code></pre></figure>
 
 <h3 id="inline-worker">Inline Worker</h3>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">  <span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;head&gt;</span>
-  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
 <span class="nt">&lt;body&gt;</span>
 
-  <span class="nt">&lt;script </span><span class="na">id=</span><span class="s">&quot;worker1&quot;</span> <span class="na">type=</span><span class="s">&quot;javascript/worker&quot;</span><span class="nt">&gt;</span>
-    <span class="c1">// This script won&#39;t be parsed by JS engines</span>
+  <span class="nt">&lt;script </span><span class="na">id=</span><span class="s">"worker1"</span> <span class="na">type=</span><span class="s">"javascript/worker"</span><span class="nt">&gt;</span>
+    <span class="c1">// This script won't be parsed by JS engines</span>
     <span class="c1">// because its type is javascript/worker.</span>
     <span class="nx">self</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">self</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s1">&#39;msg from worker&#39;</span><span class="p">);</span>
+      <span class="nx">self</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s1">'msg from worker'</span><span class="p">);</span>
     <span class="p">};</span>
     <span class="c1">// Rest of your worker code goes here.</span>
   <span class="nt">&lt;/script&gt;</span>
 
   <span class="nt">&lt;script&gt;</span>    
-    <span class="kd">var</span> <span class="nx">blob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Blob</span><span class="p">([</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#worker1&#39;</span><span class="p">).</span><span class="nx">textContent</span><span class="p">]);</span>
-    <span class="c1">// Obtain a blob URL reference to our worker &#39;file&#39;.</span>
+    <span class="kd">var</span> <span class="nx">blob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Blob</span><span class="p">([</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#worker1'</span><span class="p">).</span><span class="nx">textContent</span><span class="p">]);</span>
+    <span class="c1">// Obtain a blob URL reference to our worker 'file'.</span>
     <span class="c1">// Blob URLs are unique and last for the lifetime of your </span>
     <span class="c1">// application (e.g. until the document is unloaded).</span>
     <span class="kd">var</span> <span class="nx">blobURL</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">blob</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">worker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Worker</span><span class="p">(</span><span class="nx">blobURL</span><span class="p">);</span>
     
     <span class="c1">// Now you got your usual `worker` object</span>
-    <span class="nx">worker</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Received: &quot;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="nx">worker</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Received: "</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
     <span class="p">});</span>
-    <span class="nx">worker</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">);</span> <span class="c1">// Start the worker.</span>
+    <span class="nx">worker</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">);</span> <span class="c1">// Start the worker.</span>
   <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></div>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
 
 <h3 id="so-where-do-i-use-it">So where do I use it?</h3>
 <ul>

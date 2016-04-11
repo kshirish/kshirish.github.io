@@ -66,7 +66,7 @@
 
 <h3 id="event-loop">Event Loop</h3>
 
-<p>Javascript never blocks (avoid legacy exceptions i.e. <code>alert</code> and synchronous XHR). Handling I/O is typically performed via events and callbacks. A browser’s
+<p>Javascript never blocks (avoid legacy exceptions i.e. <code class="highlighter-rouge">alert</code> and synchronous XHR). Handling I/O is typically performed via events and callbacks. A browser’s
 event model consists of three things -</p>
 
 <ul>
@@ -75,13 +75,13 @@ event model consists of three things -</p>
   <li>async queue (callbacks)</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">);</span>
     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'!'</span><span class="p">);</span>
     <span class="p">},</span> <span class="mi">300</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">);</span></code></pre></div>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'World'</span><span class="p">);</span></code></pre></figure>
 
-<p>Above code outputs <code>HelloWorld!</code>. The job of Event loop model is simple</p>
+<p>Above code outputs <code class="highlighter-rouge">HelloWorld!</code>. The job of Event loop model is simple</p>
 
 <blockquote>
   <p>Wait for call stack to get empty and then push from async queue (if something is there ) to call stack.</p>
@@ -89,31 +89,31 @@ event model consists of three things -</p>
 
 <h3 id="watch-list">$watch list</h3>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul&gt;</span>
-      <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">&quot;person in people&quot;</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">ng-bind=</span><span class="s">&quot;person.name&quot;</span><span class="nt">&gt;&lt;/span&gt;</span> -
-          <span class="nt">&lt;span</span> <span class="na">ng-bind=</span><span class="s">&quot;person.age&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">"person in people"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">ng-bind=</span><span class="s">"person.name"</span><span class="nt">&gt;&lt;/span&gt;</span> -
+          <span class="nt">&lt;span</span> <span class="na">ng-bind=</span><span class="s">"person.age"</span><span class="nt">&gt;&lt;/span&gt;</span>
       <span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;/ul&gt;</span></code></pre></div>
+    <span class="nt">&lt;/ul&gt;</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MainCtrl&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">app</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'MainCtrl'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">$scope</span><span class="p">.</span><span class="nx">people</span> <span class="o">=</span> <span class="p">[{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Jim&#39;</span><span class="p">,</span>
-        <span class="nx">age</span><span class="o">:</span> <span class="mi">11</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'Jim'</span><span class="p">,</span>
+        <span class="na">age</span><span class="p">:</span> <span class="mi">11</span>
       <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Kim&#39;</span><span class="p">,</span>
-        <span class="nx">age</span><span class="o">:</span> <span class="mi">12</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'Kim'</span><span class="p">,</span>
+        <span class="na">age</span><span class="p">:</span> <span class="mi">12</span>
       <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Tim&#39;</span><span class="p">,</span>
-        <span class="nx">age</span><span class="o">:</span> <span class="mi">13</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'Tim'</span><span class="p">,</span>
+        <span class="na">age</span><span class="p">:</span> <span class="mi">13</span>
       <span class="p">}];</span>
-    <span class="p">});</span></code></pre></div>
+    <span class="p">});</span></code></pre></figure>
 
-<p>Above we have created (3*2) + 1 = 7 watches in total. Two per person and one for <code>ng-repeat</code> which is watching <code>people</code>. This entire list of watchers is called <code>$watch</code> list. Properties that are on the <code>$scope</code> object are only bound if they are used in the view.</p>
+<p>Above we have created (3*2) + 1 = 7 watches in total. Two per person and one for <code class="highlighter-rouge">ng-repeat</code> which is watching <code class="highlighter-rouge">people</code>. This entire list of watchers is called <code class="highlighter-rouge">$watch</code> list. Properties that are on the <code class="highlighter-rouge">$scope</code> object are only bound if they are used in the view.</p>
 
 <ul>
   <li>
-    <p><code>Dirty checking</code> is checking whether a value has changed or not. Angular walks down the <code>$watch</code> list one by one, and, if the updated value has not changed from the old value, it continues down the list. If the value has changed, the app records the new value and continues down the <code>$watch</code> list.</p>
+    <p><code class="highlighter-rouge">Dirty checking</code> is checking whether a value has changed or not. Angular walks down the <code class="highlighter-rouge">$watch</code> list one by one, and, if the updated value has not changed from the old value, it continues down the list. If the value has changed, the app records the new value and continues down the <code class="highlighter-rouge">$watch</code> list.</p>
   </li>
   <li>
     <p>Once Angular has run through the entire $watch list, if any value changed, the app will re-run the $watch loop until it finds that nothing has changed.</p>
@@ -122,9 +122,9 @@ event model consists of three things -</p>
 
 <h3 id="evalasync">$evalAsync</h3>
 
-<p>To defer an execution to some point in the future, we can use <code>$timeout</code> or <code>$evalAsync</code>. The preferred way to do it is by using the <code>$timeout</code> service that integrates the delayed function to the <code>$digest</code> lifecycle with <code>$apply</code>.</p>
+<p>To defer an execution to some point in the future, we can use <code class="highlighter-rouge">$timeout</code> or <code class="highlighter-rouge">$evalAsync</code>. The preferred way to do it is by using the <code class="highlighter-rouge">$timeout</code> service that integrates the delayed function to the <code class="highlighter-rouge">$digest</code> lifecycle with <code class="highlighter-rouge">$apply</code>.</p>
 
-<p>But there is also another way to defer code in Angular, and that’s the <code>$evalAsync</code> function on <code>$scope</code>. It takes a function and schedules it to run later but still during the ongoing digest or before the next digest or before DOM rendering.</p>
+<p>But there is also another way to defer code in Angular, and that’s the <code class="highlighter-rouge">$evalAsync</code> function on <code class="highlighter-rouge">$scope</code>. It takes a function and schedules it to run later but still during the ongoing digest or before the next digest or before DOM rendering.</p>
 
 
   </article>

@@ -66,36 +66,36 @@
 
 <p>You can see examples from twitter REST api which yields response based on queries.</p>
 
-<h4 id="first-things-first-do-npm-install-json-mask">First things first, do <code>npm install json-mask</code></h4>
+<h4 id="first-things-first-do-npm-install-json-mask">First things first, do <code class="highlighter-rouge">npm install json-mask</code></h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">jMask</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;json-mask&#39;</span><span class="p">);</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">jMask</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'json-mask'</span><span class="p">);</span></code></pre></figure>
 
 <h3 id="supported-selectors">Supported selectors</h3>
 
 <ul>
-  <li><code>a,b,c</code> comma-separated list will select multiple fields</li>
-  <li><code>a/b/c</code> path will select a field from its parent</li>
-  <li><code>a(b,c)</code> sub-selection will select many fields from a parent</li>
-  <li><code>a/*/c</code> the star * wildcard will select all items in a field</li>
+  <li><code class="highlighter-rouge">a,b,c</code> comma-separated list will select multiple fields</li>
+  <li><code class="highlighter-rouge">a/b/c</code> path will select a field from its parent</li>
+  <li><code class="highlighter-rouge">a(b,c)</code> sub-selection will select many fields from a parent</li>
+  <li><code class="highlighter-rouge">a/*/c</code> the star * wildcard will select all items in a field</li>
 </ul>
 
 <p><em>Based on description <a href="https://github.com/nemtsov/json-mask">here</a></em></p>
 
 <h3 id="basic-usage">Basic Usage</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="p">{</span><span class="nx">first</span><span class="o">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="nx">middle</span><span class="o">:</span> <span class="s1">&#39;williams&#39;</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span><span class="s1">&#39;doe&#39;</span><span class="p">},</span> <span class="nx">age</span><span class="o">:</span><span class="mi">33</span><span class="p">,</span> <span class="nx">address</span><span class="o">:</span> <span class="p">{</span><span class="nx">state</span><span class="o">:</span> <span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="nx">city</span><span class="o">:</span> <span class="s1">&#39;ny&#39;</span><span class="p">}}</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="p">{</span><span class="na">first</span><span class="p">:</span> <span class="s1">'john'</span><span class="p">,</span> <span class="na">middle</span><span class="p">:</span> <span class="s1">'williams'</span><span class="p">,</span> <span class="na">last</span><span class="p">:</span><span class="s1">'doe'</span><span class="p">},</span> <span class="na">age</span><span class="p">:</span><span class="mi">33</span><span class="p">,</span> <span class="na">address</span><span class="p">:</span> <span class="p">{</span><span class="na">state</span><span class="p">:</span> <span class="s1">'US'</span><span class="p">,</span> <span class="na">city</span><span class="p">:</span> <span class="s1">'ny'</span><span class="p">}}</span>
 
-    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
-    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">first</span><span class="o">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="nx">last</span><span class="o">:</span> <span class="s1">&#39;doe&#39;</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">'name'</span><span class="p">)</span>
+    <span class="p">{</span> <span class="nl">name</span><span class="p">:</span> <span class="p">{</span> <span class="nl">first</span><span class="p">:</span> <span class="s1">'john'</span><span class="p">,</span> <span class="na">last</span><span class="p">:</span> <span class="s1">'doe'</span> <span class="p">}</span> <span class="p">}</span>
 
-    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">&#39;name/first,address/city&#39;</span><span class="p">)</span>
-    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">first</span><span class="o">:</span> <span class="s1">&#39;john&#39;</span> <span class="p">},</span>  <span class="nx">address</span><span class="o">:</span> <span class="p">{</span><span class="nx">city</span><span class="o">:</span> <span class="s1">&#39;ny&#39;</span><span class="p">}}</span>
+    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">'name/first,address/city'</span><span class="p">)</span>
+    <span class="p">{</span> <span class="nl">name</span><span class="p">:</span> <span class="p">{</span> <span class="nl">first</span><span class="p">:</span> <span class="s1">'john'</span> <span class="p">},</span>  <span class="nx">address</span><span class="err">:</span> <span class="p">{</span><span class="nl">city</span><span class="p">:</span> <span class="s1">'ny'</span><span class="p">}}</span>
 
-    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">&#39;name(last,middle)&#39;</span><span class="p">)</span>
-    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">last</span><span class="o">:</span> <span class="s1">&#39;doe&#39;</span><span class="p">,</span> <span class="nx">middle</span><span class="o">:</span> <span class="s1">&#39;williams&#39;</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">'name(last,middle)'</span><span class="p">)</span>
+    <span class="p">{</span> <span class="nl">name</span><span class="p">:</span> <span class="p">{</span> <span class="nl">last</span><span class="p">:</span> <span class="s1">'doe'</span><span class="p">,</span> <span class="nx">middle</span><span class="err">:</span> <span class="s1">'williams'</span> <span class="p">}</span> <span class="p">}</span>
 
-    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">&#39;name/first,age&#39;</span><span class="p">)</span>
-    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">first</span><span class="o">:</span> <span class="s1">&#39;john&#39;</span> <span class="p">},</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">33</span> <span class="p">}</span></code></pre></div>
+    <span class="nx">jMask</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="s1">'name/first,age'</span><span class="p">)</span>
+    <span class="p">{</span> <span class="nl">name</span><span class="p">:</span> <span class="p">{</span> <span class="nl">first</span><span class="p">:</span> <span class="s1">'john'</span> <span class="p">},</span> <span class="nx">age</span><span class="err">:</span> <span class="mi">33</span> <span class="p">}</span></code></pre></figure>
 
 
   </article>

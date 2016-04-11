@@ -63,7 +63,7 @@
 
   <article class="post-content">
     <p>Design patterns are scary, though they gets lighter when you see the code.
-Most of us write <code>Modular</code> pattern but rarely realize it. Let’s look at the basic idea behind the popular patterns and understand through code.</p>
+Most of us write <code class="highlighter-rouge">Modular</code> pattern but rarely realize it. Let’s look at the basic idea behind the popular patterns and understand through code.</p>
 
 <h1 id="creational-pattern">Creational pattern</h1>
 
@@ -71,34 +71,34 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
   <p>Idea: creating new things</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
 
 <span class="c1">// Other ways</span>
 <span class="c1">// var obj = Object.create(null);</span>
 <span class="c1">// var obj = new Object();</span>
 <span class="c1">// var obj = Object();</span>
 
-<span class="nx">obj</span><span class="p">.</span><span class="nx">property1</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span><span class="p">;</span>
-<span class="nx">obj</span><span class="p">[</span><span class="s1">&#39;property2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;World&#39;</span><span class="p">;</span>
-<span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s1">&#39;property3&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;!&#39;</span><span class="p">,</span>
-    <span class="nx">writable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>         <span class="c1">// If not mentioned, all three values are set as false</span>
-    <span class="nx">enumerable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">configurable</span><span class="o">:</span> <span class="kc">true</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">property1</span> <span class="o">=</span> <span class="s1">'Hello'</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">[</span><span class="s1">'property2'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'World'</span><span class="p">;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s1">'property3'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">value</span><span class="p">:</span> <span class="s1">'!'</span><span class="p">,</span>
+    <span class="na">writable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>         <span class="c1">// If not mentioned, all three values are set as false</span>
+    <span class="na">enumerable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">configurable</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">});</span>
 
 <span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperties</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="p">{</span>
-    <span class="s1">&#39;property4&#39;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;one more &#39;</span><span class="p">,</span>
-        <span class="nx">writable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>         <span class="c1">// If not mentioned, all three values are set as false</span>
-        <span class="nx">enumerable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nx">configurable</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="s1">'property4'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nl">value</span><span class="p">:</span> <span class="s1">'one more '</span><span class="p">,</span>
+        <span class="na">writable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>         <span class="c1">// If not mentioned, all three values are set as false</span>
+        <span class="na">enumerable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">configurable</span><span class="p">:</span> <span class="kc">true</span>
     <span class="p">},</span> 
-    <span class="s1">&#39;property5&#39;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span>
-        <span class="nx">writable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>         <span class="c1">// If not mentioned, all three values are set as false</span>
-        <span class="nx">enumerable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nx">configurable</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="s1">'property5'</span><span class="err">:</span> <span class="p">{</span>
+        <span class="nl">value</span><span class="p">:</span> <span class="s1">'time'</span><span class="p">,</span>
+        <span class="nx">writable</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>         <span class="c1">// If not mentioned, all three values are set as false</span>
+        <span class="nx">enumerable</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">configurable</span><span class="err">:</span> <span class="kc">true</span>
     <span class="p">}</span>   
 <span class="p">});</span>
 
@@ -112,52 +112,52 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
     <span class="p">}</span>
 <span class="p">};</span>
 
-<span class="nx">obj</span><span class="p">.</span><span class="nx">reveal</span><span class="p">();</span></code></pre></div>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">reveal</span><span class="p">();</span></code></pre></figure>
 
 <h1 id="constructor-pattern">Constructor Pattern</h1>
 <blockquote>
   <p>Idea: creating specific type of objects</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">TwitterAccount</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">TwitterAccount</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="kd">function</span> <span class="nx">someEncryption</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Just made your password more secure.&#39;</span><span class="p">);</span>
-        <span class="k">return</span> <span class="s1">&#39;secure password&#39;</span><span class="p">;</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Just made your password more secure.'</span><span class="p">);</span>
+        <span class="k">return</span> <span class="s1">'secure password'</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="k">this</span><span class="p">.</span><span class="nx">username</span> <span class="o">=</span> <span class="nx">username</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="nx">someEncryption</span><span class="p">(</span><span class="nx">password</span><span class="p">);</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">image</span> <span class="o">=</span> <span class="s1">&#39;default Avatar&#39;</span><span class="p">;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your new account has been created.&#39;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">image</span> <span class="o">=</span> <span class="s1">'default Avatar'</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Your new account has been created.'</span><span class="p">);</span>
 <span class="p">}</span> 
 
 <span class="nx">TwitterAccount</span><span class="p">.</span><span class="nx">addCity</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">city</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">city</span> <span class="o">=</span> <span class="nx">city</span><span class="p">;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your info has been saved.&#39;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Your info has been saved.'</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="nx">TwitterAccount</span><span class="p">.</span><span class="nx">addImage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">image</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">image</span> <span class="o">=</span> <span class="nx">image</span><span class="p">;</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your info has been saved.&#39;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Your info has been saved.'</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="kd">var</span> <span class="nx">inLoveWithHashTags</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TwitterAccount</span><span class="p">(</span><span class="s1">&#39;HashYo&#39;</span><span class="p">,</span> <span class="s1">&#39;HashLover&#39;</span><span class="p">);</span>
-<span class="nx">inLoveWithHashTags</span><span class="p">.</span><span class="nx">addCity</span><span class="p">(</span><span class="s1">&#39;HashTown&#39;</span><span class="p">);</span>
-<span class="nx">inLoveWithHashTags</span><span class="p">.</span><span class="nx">addImage</span><span class="p">(</span><span class="s1">&#39;HashPng&#39;</span><span class="p">);</span></code></pre></div>
+<span class="kd">var</span> <span class="nx">inLoveWithHashTags</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TwitterAccount</span><span class="p">(</span><span class="s1">'HashYo'</span><span class="p">,</span> <span class="s1">'HashLover'</span><span class="p">);</span>
+<span class="nx">inLoveWithHashTags</span><span class="p">.</span><span class="nx">addCity</span><span class="p">(</span><span class="s1">'HashTown'</span><span class="p">);</span>
+<span class="nx">inLoveWithHashTags</span><span class="p">.</span><span class="nx">addImage</span><span class="p">(</span><span class="s1">'HashPng'</span><span class="p">);</span></code></pre></figure>
 
 <h1 id="singelton-pattern">Singelton Pattern</h1>
 <blockquote>
   <p>Idea: provides a single instance to interact with for everyone</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">Singelton</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">Singelton</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="kd">var</span> <span class="nx">instance</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">Project</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2&#39;</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">currentUrl</span> <span class="o">=</span> <span class="s1">&#39;/homepage&#39;</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span> <span class="o">=</span> <span class="s1">'/'</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">VERSION</span> <span class="o">=</span> <span class="s1">'1.2'</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">currentUrl</span> <span class="o">=</span> <span class="s1">'/homepage'</span><span class="p">;</span>
     <span class="p">};</span>
 
     <span class="nx">Project</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setUrl</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">pagename</span><span class="p">)</span> <span class="p">{</span> 
@@ -167,7 +167,7 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
     <span class="k">return</span> <span class="p">{</span>
         <span class="c1">// returns same instance of `Project` no </span>
         <span class="c1">// matter how many times called</span>
-        <span class="nx">getInstance</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="na">getInstance</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="nx">instance</span> <span class="o">=</span> <span class="nx">instance</span> <span class="o">||</span> <span class="p">(</span><span class="k">new</span> <span class="nx">Project</span><span class="p">());</span>
             <span class="k">return</span> <span class="nx">instance</span><span class="p">;</span>
         <span class="p">}</span>
@@ -177,37 +177,37 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
 <span class="kd">var</span> <span class="nx">instance1</span> <span class="o">=</span> <span class="nx">Singelton</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">();</span>
 <span class="kd">var</span> <span class="nx">instance2</span> <span class="o">=</span> <span class="nx">Singelton</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">();</span>
 
-<span class="nx">instance1</span> <span class="o">===</span> <span class="nx">instance2</span><span class="p">;</span>    <span class="c1">//true</span></code></pre></div>
+<span class="nx">instance1</span> <span class="o">===</span> <span class="nx">instance2</span><span class="p">;</span>    <span class="c1">//true</span></code></pre></figure>
 
 <h1 id="module-pattern">Module Pattern</h1>
 <blockquote>
   <p>Idea: an exposed public api which gives access to a common hidden code</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">AnalyticsModule</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">AnalyticsModule</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="kd">var</span> <span class="nx">viewCounter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">return</span> <span class="p">{</span>
-        <span class="nx">increaseViews</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="na">increaseViews</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="nx">viewCounter</span><span class="o">++</span><span class="p">;</span>
         <span class="p">},</span>
-        <span class="nx">getTotalViews</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="na">getTotalViews</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="k">return</span> <span class="nx">viewCounter</span><span class="p">;</span>
         <span class="p">},</span>
-        <span class="nx">resetViews</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="na">resetViews</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="nx">viewCounter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">})();</span></code></pre></div>
+<span class="p">})();</span></code></pre></figure>
 
 <h1 id="observer-pattern-aka-publishsubscribe">Observer Pattern aka Publish/Subscribe</h1>
 <blockquote>
   <p>Idea: one object watches the other loose coupling</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/* jQuery Tiny Pub/Sub - v0.7 - 10/27/2011</span>
-<span class="cm"> * http://benalman.com/</span>
-<span class="cm"> * Copyright (c) 2011 &quot;Cowboy&quot; Ben Alman; Licensed MIT, GPL */</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/* jQuery Tiny Pub/Sub - v0.7 - 10/27/2011
+ * http://benalman.com/
+ * Copyright (c) 2011 "Cowboy" Ben Alman; Licensed MIT, GPL */</span>
  
 <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
  
@@ -233,13 +233,13 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
   <span class="kd">var</span> <span class="nx">pubsubModel</span> <span class="o">=</span> <span class="p">{};</span>
 
   <span class="k">return</span> <span class="p">{</span>
-    <span class="nx">subscribe</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">handler</span><span class="p">)</span> <span class="p">{</span>
+    <span class="na">subscribe</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">handler</span><span class="p">)</span> <span class="p">{</span>
 
       <span class="nx">pubsubModel</span><span class="p">[</span><span class="nx">event</span><span class="p">]</span> <span class="o">=</span> <span class="nx">pubsubModel</span><span class="p">[</span><span class="nx">event</span><span class="p">]</span> <span class="o">||</span> <span class="p">[];</span>
       <span class="nx">pubsubModel</span><span class="p">[</span><span class="nx">event</span><span class="p">].</span><span class="nx">push</span><span class="p">(</span><span class="nx">handler</span><span class="p">);</span>
 
     <span class="p">},</span>
-    <span class="nx">unsubscribe</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">handler</span><span class="p">)</span> <span class="p">{</span>
+    <span class="na">unsubscribe</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">handler</span><span class="p">)</span> <span class="p">{</span>
 
       <span class="kd">var</span> <span class="nx">handlerString</span> <span class="o">=</span> <span class="nx">handler</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
       <span class="nx">pubsubModel</span><span class="p">[</span><span class="nx">event</span><span class="p">]</span> <span class="o">=</span> <span class="nx">pubsubModel</span><span class="p">[</span><span class="nx">event</span><span class="p">].</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="p">{</span>
@@ -247,7 +247,7 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
         <span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">!==</span> <span class="nx">handlerString</span><span class="p">;</span>
       <span class="p">});</span>
     <span class="p">},</span>
-    <span class="nx">publish</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="na">publish</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
 
       <span class="nx">pubsubModel</span><span class="p">[</span><span class="nx">event</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">func</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
@@ -255,14 +255,14 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
     <span class="p">}</span>
   <span class="p">};</span>
 
-<span class="p">})();</span></code></pre></div>
+<span class="p">})();</span></code></pre></figure>
 
 <h1 id="facade-pattern">Facade Pattern</h1>
 <blockquote>
   <p>Idea: to show a different face, conceal the reality</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">addMyEvent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">element</span><span class="p">,</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">handler</span> <span class="p">){</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">addMyEvent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">element</span><span class="p">,</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">handler</span> <span class="p">){</span>
   
   <span class="k">if</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">){</span>
   
@@ -270,35 +270,35 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
   
   <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">){</span>
   
-    <span class="nx">element</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span> <span class="s1">&#39;on&#39;</span><span class="o">+</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">handler</span> <span class="p">);</span>
+    <span class="nx">element</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span> <span class="s1">'on'</span><span class="o">+</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">handler</span> <span class="p">);</span>
   
   <span class="p">}</span> <span class="k">else</span><span class="p">{</span>
   
-    <span class="nx">element</span><span class="p">[</span><span class="s1">&#39;on&#39;</span> <span class="o">+</span> <span class="nx">event</span><span class="p">]</span> <span class="o">=</span> <span class="nx">handler</span><span class="p">;</span>
+    <span class="nx">element</span><span class="p">[</span><span class="s1">'on'</span> <span class="o">+</span> <span class="nx">event</span><span class="p">]</span> <span class="o">=</span> <span class="nx">handler</span><span class="p">;</span>
   
   <span class="p">}</span>
 
-<span class="p">};</span></code></pre></div>
+<span class="p">};</span></code></pre></figure>
 
 <h1 id="factory-pattern">Factory Pattern</h1>
 <blockquote>
   <p>Idea: create mutiple type of objects through same interface</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Elephant</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">Elephant</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">ear</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">career</span> <span class="o">=</span> <span class="s1">&#39;zoo&#39;</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">trunk</span> <span class="o">=</span> <span class="s1">&#39;only one&#39;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">career</span> <span class="o">=</span> <span class="s1">'zoo'</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">trunk</span> <span class="o">=</span> <span class="s1">'only one'</span>
 <span class="p">}</span>
  
 <span class="kd">function</span> <span class="nx">Zebra</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">skin</span> <span class="o">=</span> <span class="s1">&#39;stripes&#39;</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">lookalike</span> <span class="o">=</span> <span class="s1">&#39;donkey&#39;</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">skin</span> <span class="o">=</span> <span class="s1">'stripes'</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">lookalike</span> <span class="o">=</span> <span class="s1">'donkey'</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">Pig</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">loves</span> <span class="o">=</span> <span class="s1">&#39;shit&#39;</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">motto</span> <span class="o">=</span> <span class="s1">&#39;eat &amp; sleep&#39;</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">loves</span> <span class="o">=</span> <span class="s1">'shit'</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">motto</span> <span class="o">=</span> <span class="s1">'eat &amp; sleep'</span><span class="p">;</span>
 <span class="p">}</span> 
 
 <span class="kd">function</span> <span class="nx">AnimalFactory</span><span class="p">()</span> <span class="p">{}</span>
@@ -307,15 +307,15 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
   
   <span class="kd">var</span> <span class="nx">parentClass</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
   
-  <span class="k">if</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">animType</span> <span class="o">===</span> <span class="s1">&#39;elephant&#39;</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">animType</span> <span class="o">===</span> <span class="s1">'elephant'</span> <span class="p">)</span> <span class="p">{</span>
 
     <span class="nx">parentClass</span> <span class="o">=</span> <span class="nx">Elephant</span><span class="p">;</span>
 
-  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">animType</span> <span class="o">===</span> <span class="s1">&#39;zebra&#39;</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">animType</span> <span class="o">===</span> <span class="s1">'zebra'</span> <span class="p">)</span> <span class="p">{</span>
 
     <span class="nx">parentClass</span> <span class="o">=</span> <span class="nx">Zebra</span><span class="p">;</span>
 
-  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">animType</span> <span class="o">===</span> <span class="s1">&#39;pig&#39;</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">animType</span> <span class="o">===</span> <span class="s1">'pig'</span> <span class="p">)</span> <span class="p">{</span>
 
     <span class="nx">parentClass</span> <span class="o">=</span> <span class="nx">Pig</span><span class="p">;</span>
 
@@ -334,32 +334,32 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
 <span class="c1">// example usage</span>
 <span class="kd">var</span> <span class="nx">zoo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AnimalFactory</span><span class="p">();</span>
 
-<span class="kd">var</span> <span class="nx">pig</span> <span class="o">=</span> <span class="nx">zoo</span><span class="p">.</span><span class="nx">giveMe</span><span class="p">({</span> <span class="nx">animType</span><span class="o">:</span> <span class="s1">&#39;pig&#39;</span> <span class="p">});</span>
+<span class="kd">var</span> <span class="nx">pig</span> <span class="o">=</span> <span class="nx">zoo</span><span class="p">.</span><span class="nx">giveMe</span><span class="p">({</span> <span class="na">animType</span><span class="p">:</span> <span class="s1">'pig'</span> <span class="p">});</span>
 
-<span class="kd">var</span> <span class="nx">zebra</span> <span class="o">=</span> <span class="nx">zoo</span><span class="p">.</span><span class="nx">giveMe</span><span class="p">({</span> <span class="nx">animType</span><span class="o">:</span> <span class="s1">&#39;zebra&#39;</span> <span class="p">});</span>
+<span class="kd">var</span> <span class="nx">zebra</span> <span class="o">=</span> <span class="nx">zoo</span><span class="p">.</span><span class="nx">giveMe</span><span class="p">({</span> <span class="na">animType</span><span class="p">:</span> <span class="s1">'zebra'</span> <span class="p">});</span>
  
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">pig</span> <span class="k">instanceof</span> <span class="nx">Pig</span> <span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">zebra</span> <span class="k">instanceof</span> <span class="nx">Zebra</span> <span class="p">);</span></code></pre></div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">zebra</span> <span class="k">instanceof</span> <span class="nx">Zebra</span> <span class="p">);</span></code></pre></figure>
 
 <h1 id="decorator-pattern">Decorator Pattern</h1>
 <blockquote>
   <p>Idea: when making subclass doesn’t make sense</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Example 1.</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Example 1.</span>
 
 <span class="kd">function</span> <span class="nx">Vehicle</span><span class="p">(</span> <span class="nx">vehicleType</span> <span class="p">){</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">vehicleType</span> <span class="o">=</span> <span class="nx">vehicleType</span> <span class="o">||</span> <span class="s1">&#39;car&#39;</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">license</span> <span class="o">=</span> <span class="s1">&#39;00000-000&#39;</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">vehicleType</span> <span class="o">=</span> <span class="nx">vehicleType</span> <span class="o">||</span> <span class="s1">'car'</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="o">=</span> <span class="s1">'default'</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">license</span> <span class="o">=</span> <span class="s1">'00000-000'</span><span class="p">;</span>
 <span class="p">}</span>
 
 
 <span class="c1">// This is how a basic instance looks like</span>
-<span class="kd">var</span> <span class="nx">plane</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="s1">&#39;plane&#39;</span><span class="p">);</span>   
+<span class="kd">var</span> <span class="nx">plane</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="s1">'plane'</span><span class="p">);</span>   
 
-<span class="kd">var</span> <span class="nx">truck</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vehicle</span><span class="p">(</span><span class="s1">&#39;truck&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">truck</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vehicle</span><span class="p">(</span><span class="s1">'truck'</span><span class="p">);</span>
 
 <span class="c1">// Instead of making a seperate `truck` subclass of vehicle</span>
 <span class="c1">// better we will decorate it.</span>
@@ -372,14 +372,14 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
     <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nx">truck</span><span class="p">.</span><span class="nx">setModel</span><span class="p">(</span><span class="s1">&#39;CAT&#39;</span><span class="p">);</span>
-<span class="nx">truck</span><span class="p">.</span><span class="nx">setColor</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
+<span class="nx">truck</span><span class="p">.</span><span class="nx">setModel</span><span class="p">(</span><span class="s1">'CAT'</span><span class="p">);</span>
+<span class="nx">truck</span><span class="p">.</span><span class="nx">setColor</span><span class="p">(</span><span class="s1">'blue'</span><span class="p">);</span>
 
-<span class="c1">// Here &#39;Vehicle&#39; works as before</span>
-<span class="kd">var</span> <span class="nx">car</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vehicle</span><span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">);</span>
+<span class="c1">// Here 'Vehicle' works as before</span>
+<span class="kd">var</span> <span class="nx">car</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vehicle</span><span class="p">(</span><span class="s1">'car'</span><span class="p">);</span>
 
 <span class="c1">// Example 2.</span>
-<span class="c1">// What we&#39;re going to decorate</span>
+<span class="c1">// What we're going to decorate</span>
 <span class="kd">function</span> <span class="nx">MacBook</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">cost</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">997</span><span class="p">;</span> <span class="p">};</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">screenSize</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mf">13.3</span><span class="p">;</span> <span class="p">};</span>
@@ -413,7 +413,7 @@ Most of us write <code>Modular</code> pattern but rarely realize it. Let’s loo
 
 <span class="nx">Memory</span><span class="p">(</span><span class="nx">macAir</span><span class="p">);</span>     <span class="c1">// decorating once</span>
 <span class="nx">Engraving</span><span class="p">(</span><span class="nx">macAir</span><span class="p">);</span>  <span class="c1">// decorating again</span>
-<span class="nx">Insurance</span><span class="p">(</span><span class="nx">macAir</span><span class="p">);</span>  <span class="c1">// how many times i want</span></code></pre></div>
+<span class="nx">Insurance</span><span class="p">(</span><span class="nx">macAir</span><span class="p">);</span>  <span class="c1">// how many times i want</span></code></pre></figure>
 
   </article>
 

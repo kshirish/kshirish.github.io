@@ -62,9 +62,9 @@
   </header>
 
   <article class="post-content">
-    <p>To keep it short - IE doesn’t walk along well with other modern web browsers. Many features of <code>HTML5</code> and <code>CSS3</code> are either partially implemented or not provided at all. See the <a href="https://html5test.com/compare/browser/ie-9.html">comparison</a> for yourself.</p>
+    <p>To keep it short - IE doesn’t walk along well with other modern web browsers. Many features of <code class="highlighter-rouge">HTML5</code> and <code class="highlighter-rouge">CSS3</code> are either partially implemented or not provided at all. See the <a href="https://html5test.com/compare/browser/ie-9.html">comparison</a> for yourself.</p>
 
-<p>Let me list out some of the stuff <code>IE9</code> doesn’t support:</p>
+<p>Let me list out some of the stuff <code class="highlighter-rouge">IE9</code> doesn’t support:</p>
 
 <ul>
   <li>Application Cache (offline)</li>
@@ -83,41 +83,41 @@
   <li>Drag’n Drop from Desktop</li>
 </ul>
 
-<p>Since it has substantial amount of users, it becomes inevitable to ignore it. Also tools like <code>Modernizr</code> makes it easy for you to write conditional JavaScript and CSS to handle each situation, whether a browser supports a feature or not.</p>
+<p>Since it has substantial amount of users, it becomes inevitable to ignore it. Also tools like <code class="highlighter-rouge">Modernizr</code> makes it easy for you to write conditional JavaScript and CSS to handle each situation, whether a browser supports a feature or not.</p>
 
-<p>These conditional comments are only supported till <code>IE9</code> (from <code>IE5</code>). So if you need special CSS styles for <code>IE10</code> or up you’ll have to find another method, since conditional comments are disabled in <code>IE10</code>.</p>
+<p>These conditional comments are only supported till <code class="highlighter-rouge">IE9</code> (from <code class="highlighter-rouge">IE5</code>). So if you need special CSS styles for <code class="highlighter-rouge">IE10</code> or up you’ll have to find another method, since conditional comments are disabled in <code class="highlighter-rouge">IE10</code>.</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!--[if IE]&gt;</span>
-<span class="c">According to the conditional comment this is IE5-IE9&lt;br /&gt;</span>
-<span class="c">&lt;![endif]--&gt;</span>
-<span class="c">&lt;!--[if IE 6]&gt;</span>
-<span class="c">According to the conditional comment this is IE6&lt;br /&gt;</span>
-<span class="c">&lt;![endif]--&gt;</span>
-<span class="c">&lt;!--[if IE 7]&gt;</span>
-<span class="c">According to the conditional comment this is IE7&lt;br /&gt;</span>
-<span class="c">&lt;![endif]--&gt;</span>
-<span class="c">&lt;!--[if IE 8]&gt;</span>
-<span class="c">According to the conditional comment this is IE8&lt;br /&gt;</span>
-<span class="c">&lt;![endif]--&gt;</span>
-<span class="c">&lt;!--[if IE 9]&gt;</span>
-<span class="c">According to the conditional comment this is IE9&lt;br /&gt;</span>
-<span class="c">&lt;![endif]--&gt;</span>
-<span class="c">&lt;!--[if gte IE 8]&gt;</span>
-<span class="c">According to the conditional comment this is IE8 or higher&lt;br /&gt;</span>
-<span class="c">&lt;![endif]--&gt;</span>
-<span class="c">&lt;!--[if lt IE 9]&gt;</span>
-<span class="c">According to the conditional comment this is IE lower than 9&lt;br /&gt;</span>
-<span class="c">&lt;![endif]--&gt;</span>
-<span class="c">&lt;!--[if !IE]&gt;</span>
-<span class="c">According to the conditional comment this is not IE5-IE9&lt;br /&gt;</span>
-<span class="c">&lt;![endif]--&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!--[if IE]&gt;
+According to the conditional comment this is IE5-IE9&lt;br /&gt;
+&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 6]&gt;
+According to the conditional comment this is IE6&lt;br /&gt;
+&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 7]&gt;
+According to the conditional comment this is IE7&lt;br /&gt;
+&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 8]&gt;
+According to the conditional comment this is IE8&lt;br /&gt;
+&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if IE 9]&gt;
+According to the conditional comment this is IE9&lt;br /&gt;
+&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if gte IE 8]&gt;
+According to the conditional comment this is IE8 or higher&lt;br /&gt;
+&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if lt IE 9]&gt;
+According to the conditional comment this is IE lower than 9&lt;br /&gt;
+&lt;![endif]--&gt;</span>
+<span class="c">&lt;!--[if !IE]&gt;
+According to the conditional comment this is not IE5-IE9&lt;br /&gt;
+&lt;![endif]--&gt;</span></code></pre></figure>
 
 <h3 id="conditional-linking-to-stylesheets">Conditional linking to stylesheets</h3>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;normal-styles.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="nt">/&gt;</span>
-<span class="c">&lt;!--[if lte IE 9]&gt;</span>
-<span class="c">&lt;link rel=&quot;stylesheet&quot;  href=&quot;ie-fixes.css&quot; type=&quot;text/css&quot; /&gt;</span>
-<span class="c">&lt;![endif]--&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"normal-styles.css"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="nt">/&gt;</span>
+<span class="c">&lt;!--[if lte IE 9]&gt;
+&lt;link rel="stylesheet"  href="ie-fixes.css" type="text/css" /&gt;
+&lt;![endif]--&gt;</span></code></pre></figure>
 
 <p>Check here <a href="http://stackoverflow.com/questions/16135814/check-for-ie-10">IE10 Detection</a></p>
 

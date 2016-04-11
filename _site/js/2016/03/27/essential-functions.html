@@ -64,13 +64,13 @@
   <article class="post-content">
     <h3 id="debounce">debounce</h3>
 <blockquote>
-  <p>Returns a function which will be executed only if N milliseconds have passed without it being called. If <code>immediate</code> is passed, trigger the function on the leading edge, instead of the trailing.</p>
+  <p>Returns a function which will be executed only if N milliseconds have passed without it being called. If <code class="highlighter-rouge">immediate</code> is passed, trigger the function on the leading edge, instead of the trailing.</p>
 
 </blockquote>
 
 <h4 id="implementation">implementation</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">debounce</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="nx">wait</span><span class="p">,</span> <span class="nx">immediate</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">function</span> <span class="nx">debounce</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="nx">wait</span><span class="p">,</span> <span class="nx">immediate</span><span class="p">)</span> <span class="p">{</span>
     
     <span class="kd">var</span> <span class="nx">timeout</span><span class="p">;</span>
     
@@ -88,15 +88,15 @@
 
       <span class="nx">callNow</span> <span class="o">&amp;&amp;</span> <span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>          
     <span class="p">};</span>
-  <span class="p">}</span></code></pre></div>
+  <span class="p">}</span></code></pre></figure>
 
 <h4 id="usage">usage</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="nx">debounce</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Debounced!&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="nx">debounce</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Debounced!'</span><span class="p">);</span>
   <span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
 
-  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">,</span> <span class="nx">func</span><span class="p">);</span></code></pre></div>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'resize'</span><span class="p">,</span> <span class="nx">func</span><span class="p">);</span></code></pre></figure>
 
 <h3 id="throttle">throttle</h3>
 <blockquote>
@@ -105,7 +105,7 @@
 
 <h4 id="implementation-1">implementation</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">throttle</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="nx">wait</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">function</span> <span class="nx">throttle</span><span class="p">(</span><span class="nx">func</span><span class="p">,</span> <span class="nx">wait</span><span class="p">)</span> <span class="p">{</span>
     
     <span class="kd">var</span> <span class="nx">isTime</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
     
@@ -119,15 +119,15 @@
         <span class="p">},</span> <span class="nx">wait</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">};</span>
-  <span class="p">}</span></code></pre></div>
+  <span class="p">}</span></code></pre></figure>
 
 <h4 id="usage-1">usage</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="nx">throttle</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Throttled!&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="nx">throttle</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Throttled!'</span><span class="p">);</span>
   <span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
 
-  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;resize&#39;</span><span class="p">,</span> <span class="nx">func</span><span class="p">);</span></code></pre></div>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'resize'</span><span class="p">,</span> <span class="nx">func</span><span class="p">);</span></code></pre></figure>
 
 <h3 id="once">once</h3>
 <blockquote>
@@ -136,7 +136,7 @@
 
 <h4 id="implementation-2">implementation</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">once</span><span class="p">(</span><span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">function</span> <span class="nx">once</span><span class="p">(</span><span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
     
     <span class="kd">var</span> <span class="nx">result</span><span class="p">;</span>
     
@@ -148,17 +148,17 @@
 
       <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
     <span class="p">}</span>
-  <span class="p">}</span></code></pre></div>
+  <span class="p">}</span></code></pre></figure>
 
 <h4 id="usage-2">usage</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">displayOnce</span> <span class="o">=</span> <span class="nx">once</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">displayOnce</span> <span class="o">=</span> <span class="nx">once</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hello!'</span><span class="p">);</span>
   <span class="p">});</span>
 
   <span class="nx">displayOnce</span><span class="p">();</span>  <span class="c1">// Hello!</span>
   <span class="nx">displayOnce</span><span class="p">();</span>  <span class="c1">// undefined</span>
-  <span class="nx">displayOnce</span><span class="p">();</span>  <span class="c1">// undefined</span></code></pre></div>
+  <span class="nx">displayOnce</span><span class="p">();</span>  <span class="c1">// undefined</span></code></pre></figure>
 
 <h3 id="curry">curry</h3>
 <blockquote>
@@ -167,7 +167,7 @@
 
 <h4 id="implementation-3">implementation</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">curry</span><span class="p">(</span><span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">function</span> <span class="nx">curry</span><span class="p">(</span><span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// no of arguments that `func` is expeccting</span>
     <span class="kd">var</span> <span class="nx">arity</span> <span class="o">=</span> <span class="nx">func</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 
@@ -180,11 +180,11 @@
         <span class="k">return</span> <span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">args2</span><span class="p">));</span>
       <span class="p">}</span>
     <span class="p">}</span>
-  <span class="p">}</span></code></pre></div>
+  <span class="p">}</span></code></pre></figure>
 
 <h4 id="usage-3">usage</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">sumFour</span> <span class="o">=</span> <span class="nx">curry</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">sumFour</span> <span class="o">=</span> <span class="nx">curry</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">z</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">w</span> <span class="o">+</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">z</span><span class="p">;</span>
   <span class="p">});</span>
  
@@ -192,7 +192,7 @@
   <span class="kd">var</span> <span class="nx">f2</span> <span class="o">=</span> <span class="nx">sumFour</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>    <span class="c1">// returns a function awaiting 1 argument</span>
   <span class="kd">var</span> <span class="nx">f3</span> <span class="o">=</span> <span class="nx">sumFour</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>    <span class="c1">// returns a function awaiting 1 argument</span>
   <span class="kd">var</span> <span class="nx">x1</span> <span class="o">=</span> <span class="nx">sumFour</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// fully applied</span>
-  <span class="kd">var</span> <span class="nx">x2</span> <span class="o">=</span> <span class="nx">sumFour</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">)(</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// fully applied</span></code></pre></div>
+  <span class="kd">var</span> <span class="nx">x2</span> <span class="o">=</span> <span class="nx">sumFour</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">)(</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// fully applied</span></code></pre></figure>
 
 <h3 id="compose">compose</h3>
 <blockquote>
@@ -203,7 +203,7 @@ Expression - a(b(c(x))) - with x being the starting value.</p>
 
 <h4 id="implementation-4">implementation</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">compose</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">compose</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 
     <span class="kd">var</span> <span class="nx">fns</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">val</span><span class="p">;</span>  
@@ -218,20 +218,20 @@ Expression - a(b(c(x))) - with x being the starting value.</p>
 
       <span class="k">return</span> <span class="nx">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
     <span class="p">};</span>
-  <span class="p">};</span></code></pre></div>
+  <span class="p">};</span></code></pre></figure>
 
 <h4 id="usage-4">usage</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s1">&#39;Hi, &#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'Hi, '</span> <span class="o">+</span> <span class="nx">name</span><span class="p">;</span>
   <span class="p">};</span>
 
   <span class="kd">var</span> <span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">first</span><span class="p">,</span> <span class="nx">middle</span><span class="p">,</span> <span class="nx">last</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">first</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">middle</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">last</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">first</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">middle</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">last</span><span class="p">;</span>
   <span class="p">};</span>
 
   <span class="kd">var</span> <span class="nx">sayHi</span> <span class="o">=</span> <span class="nx">compose</span><span class="p">(</span><span class="nx">getName</span><span class="p">,</span> <span class="nx">greet</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">r</span><span class="p">);});</span>
-  <span class="nx">sayHi</span><span class="p">(</span><span class="s1">&#39;ram&#39;</span><span class="p">,</span> <span class="s1">&#39;gopal&#39;</span><span class="p">,</span> <span class="s1">&#39;verma&#39;</span><span class="p">);</span>   <span class="c1">// Hi, ram gopal verma</span></code></pre></div>
+  <span class="nx">sayHi</span><span class="p">(</span><span class="s1">'ram'</span><span class="p">,</span> <span class="s1">'gopal'</span><span class="p">,</span> <span class="s1">'verma'</span><span class="p">);</span>   <span class="c1">// Hi, ram gopal verma</span></code></pre></figure>
 
 <h3 id="references">References</h3>
 <ul>

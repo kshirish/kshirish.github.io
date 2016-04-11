@@ -64,16 +64,17 @@
   <article class="post-content">
     <h1 id="arrows">Arrows</h1>
 <blockquote>
-  <p>A function shorthand that binds <code>this</code> value.
+  <p>A function shorthand that binds <code class="highlighter-rouge">this</code> value.
 Arrow functions are always anonymous.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// // Basic syntax:</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"> 
+<span class="c1">// // Basic syntax:</span>
 <span class="c1">// (param1, param2, paramN) =&gt; { statements }</span>
 <span class="c1">// (param1, param2, paramN) =&gt; expression</span>
 <span class="c1">// equivalent to:  =&gt; { return expression; }</span>
 
-<span class="c1">// Parentheses are optional when there&#39;s only one argument:</span>
+<span class="c1">// Parentheses are optional when there's only one argument:</span>
 <span class="c1">// singleParam =&gt; { statements }</span>
 <span class="c1">// singleParam =&gt; expression</span>
 
@@ -89,20 +90,20 @@ Arrow functions are always anonymous.</p>
 
 <span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[</span>
   <span class="p">{</span>
-    <span class="nx">first</span><span class="o">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span>
-    <span class="nx">last</span><span class="o">:</span> <span class="s1">&#39;doe&#39;</span>
+    <span class="na">first</span><span class="p">:</span> <span class="s1">'john'</span><span class="p">,</span>
+    <span class="na">last</span><span class="p">:</span> <span class="s1">'doe'</span>
   <span class="p">},</span>
 	<span class="p">{</span>
-    <span class="nx">first</span><span class="o">:</span> <span class="s1">&#39;harry&#39;</span><span class="p">,</span>
-    <span class="nx">last</span><span class="o">:</span> <span class="s1">&#39;potter&#39;</span>
+    <span class="na">first</span><span class="p">:</span> <span class="s1">'harry'</span><span class="p">,</span>
+    <span class="na">last</span><span class="p">:</span> <span class="s1">'potter'</span>
   <span class="p">},</span>
 	<span class="p">{</span>
-    <span class="nx">first</span><span class="o">:</span> <span class="s1">&#39;wee&#39;</span><span class="p">,</span>
-    <span class="nx">last</span><span class="o">:</span> <span class="s1">&#39;kee&#39;</span>
+    <span class="na">first</span><span class="p">:</span> <span class="s1">'wee'</span><span class="p">,</span>
+    <span class="na">last</span><span class="p">:</span> <span class="s1">'kee'</span>
   <span class="p">}</span>
 <span class="p">];</span>
 
-<span class="nx">names</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="nx">name</span><span class="o">=&gt;</span> <span class="nx">name</span><span class="p">.</span><span class="nx">first</span> <span class="o">+</span> <span class="nx">name</span><span class="p">.</span><span class="nx">last</span> <span class="p">);</span></code></pre></div>
+<span class="nx">names</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span> <span class="nx">name</span><span class="o">=&gt;</span> <span class="nx">name</span><span class="p">.</span><span class="nx">first</span> <span class="o">+</span> <span class="nx">name</span><span class="p">.</span><span class="nx">last</span> <span class="p">);</span></code></pre></figure>
 
 <h1 id="classes-does-not-introduce-a-new-way-rather-is-a-sugar-syntax">classes: does not introduce a new way rather is a sugar syntax</h1>
 <blockquote>
@@ -112,7 +113,7 @@ You first need to declare your class and then access it,
 otherwise code like the following will throw a ReferenceError:</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Polygon</span><span class="p">();</span> <span class="c1">// ReferenceError</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Polygon</span><span class="p">();</span> <span class="c1">// ReferenceError</span>
 
 <span class="kr">class</span> <span class="nx">Polygon</span> <span class="p">{</span>
   <span class="nx">constructor</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="nx">width</span><span class="p">)</span> <span class="p">{</span>
@@ -129,113 +130,113 @@ otherwise code like the following will throw a ReferenceError:</p>
   <span class="p">}</span>
   
   <span class="kr">static</span> <span class="nx">distance</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;I am a static function&#39;</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;I do not give shit about instances&#39;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'I am a static function'</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'I do not give shit about instances'</span><span class="p">);</span>
   <span class="p">}</span>
   
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <blockquote>
   <p>Tell me about inheritance</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Cat</span> <span class="p">{</span> 
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Cat</span> <span class="p">{</span> 
   <span class="nx">constructor</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
   <span class="p">}</span>
   
   <span class="nx">speak</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39; makes a noise.&#39;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">' makes a noise.'</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kr">class</span> <span class="nx">Tiger</span> <span class="kr">extends</span> <span class="nx">Cat</span> <span class="p">{</span>
   <span class="nx">speak</span><span class="p">()</span> <span class="p">{</span>
     <span class="kr">super</span><span class="p">.</span><span class="nx">speak</span><span class="p">();</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39; roars.&#39;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">' roars.'</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tiger</span><span class="p">(</span><span class="s1">&#39;Simba&#39;</span><span class="p">);</span> <span class="c1">// Tiger {name: &quot;Simba&quot;}</span>
+<span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tiger</span><span class="p">(</span><span class="s1">'Simba'</span><span class="p">);</span> <span class="c1">// Tiger {name: "Simba"}</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span>           	<span class="c1">// Simba makes a noise.</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">speak</span><span class="p">());</span>   	<span class="c1">// Simba roars.</span></code></pre></div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">speak</span><span class="p">());</span>   	<span class="c1">// Simba roars.</span></code></pre></figure>
 
 <h1 id="enhanced-object-literals">Enhanced Object Literals</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">theProtoObj</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;whatever&#39;</span><span class="p">,</span>
-  <span class="nx">age</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">theProtoObj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="s1">'whatever'</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">handler</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{};</span>
 
 <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1">// __proto__</span>
-    <span class="nx">__proto__</span><span class="o">:</span> <span class="nx">theProtoObj</span><span class="p">,</span>
+    <span class="na">__proto__</span><span class="p">:</span> <span class="nx">theProtoObj</span><span class="p">,</span>
     <span class="c1">// Shorthand for ‘handler: handler’</span>
     <span class="nx">handler</span><span class="p">,</span>
     <span class="c1">// Methods</span>
     <span class="nx">toString</span><span class="p">()</span> <span class="p">{</span>
      <span class="c1">// Super calls</span>
-     <span class="k">return</span> <span class="s2">&quot;d &quot;</span> <span class="o">+</span> <span class="kr">super</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+     <span class="k">return</span> <span class="s2">"d "</span> <span class="o">+</span> <span class="kr">super</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
     <span class="p">},</span>
     <span class="c1">// Computed (dynamic) property names</span>
-    <span class="p">[</span> <span class="s1">&#39;prop_&#39;</span> <span class="o">+</span> <span class="p">(()</span> <span class="o">=&gt;</span> <span class="mi">42</span><span class="p">)()</span> <span class="p">]</span><span class="o">:</span> <span class="mi">42</span>
-<span class="p">};</span></code></pre></div>
+    <span class="p">[</span> <span class="s1">'prop_'</span> <span class="o">+</span> <span class="p">(()</span> <span class="o">=&gt;</span> <span class="mi">42</span><span class="p">)()</span> <span class="p">]:</span> <span class="mi">42</span>
+<span class="p">};</span></code></pre></figure>
 
 <h1 id="template-strings">Template Strings</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="nx">time</span> <span class="o">=</span> <span class="s2">&quot;today&quot;</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="nx">time</span> <span class="o">=</span> <span class="s2">"today"</span><span class="p">;</span>
 
 <span class="c1">// and even this is possible</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">Hello</span> <span class="nx">$</span><span class="p">{</span><span class="nx">name</span><span class="p">},</span> <span class="nx">how</span>
 <span class="nx">are</span>
-<span class="nx">you</span> <span class="nx">$</span><span class="p">{</span><span class="nx">time</span><span class="p">}</span><span class="o">?</span><span class="err">`</span><span class="p">);</span></code></pre></div>
+<span class="nx">you</span> <span class="nx">$</span><span class="p">{</span><span class="nx">time</span><span class="p">}?</span><span class="err">`</span><span class="p">);</span></code></pre></figure>
 
 <h1 id="destructuring">Destructuring</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">];</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"one"</span><span class="p">,</span> <span class="s2">"two"</span><span class="p">,</span> <span class="s2">"three"</span><span class="p">];</span>
 <span class="kd">var</span> <span class="p">[</span><span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">,</span> <span class="nx">three</span><span class="p">]</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">;</span>
-<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span></code></pre></div>
+<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span></code></pre></figure>
 
 <h1 id="multiple-returns">multiple returns</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="nx">func</span><span class="p">();</span>
 
-<span class="kd">var</span> <span class="p">{</span><span class="nx">p</span><span class="p">,</span> <span class="nx">q</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="nx">p</span><span class="o">:</span> <span class="mi">42</span><span class="p">,</span> <span class="nx">q</span><span class="o">:</span> <span class="kc">true</span><span class="p">};</span>
+<span class="kd">var</span> <span class="p">{</span><span class="nx">p</span><span class="p">,</span> <span class="nx">q</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="na">p</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="na">q</span><span class="p">:</span> <span class="kc">true</span><span class="p">};</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span> <span class="c1">// 42</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">q</span><span class="p">);</span> <span class="c1">// true </span>
 
 <span class="c1">// Assign new variable names</span>
-<span class="kd">var</span> <span class="p">{</span><span class="nx">p</span><span class="o">:</span> <span class="nx">foo</span><span class="p">,</span> <span class="nx">q</span><span class="o">:</span> <span class="nx">bar</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="nx">p</span><span class="o">:</span> <span class="mi">42</span><span class="p">,</span> <span class="nx">q</span><span class="o">:</span> <span class="kc">true</span><span class="p">};</span>
+<span class="kd">var</span> <span class="p">{</span><span class="na">p</span><span class="p">:</span> <span class="nx">foo</span><span class="p">,</span> <span class="na">q</span><span class="p">:</span> <span class="nx">bar</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="na">p</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="na">q</span><span class="p">:</span> <span class="kc">true</span><span class="p">};</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// 42</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span> <span class="c1">// true</span></code></pre></div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span> <span class="c1">// true</span></code></pre></figure>
 
 <h1 id="default">Default</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// y is 12 if not passed (or passed as undefined)</span>
   <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nx">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// 15;</span></code></pre></div>
+<span class="nx">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// 15;</span></code></pre></figure>
 
 <h1 id="rest-parameters">Rest Parameters</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="p">...</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="p">...</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// y is an Array</span>
   <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nx">f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>  <span class="c1">// 6;</span></code></pre></div>
+<span class="nx">f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"hello"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>  <span class="c1">// 6;</span></code></pre></figure>
 
 <h1 id="symbol">Symbol:</h1>
 <blockquote>
@@ -244,14 +245,14 @@ for object properties. It is an implicit object wrapper for the symbol
 primitive data type.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">fooSym</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>  
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">fooSym</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">);</span>  
 <span class="kd">var</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{};</span>  
-<span class="nx">myObj</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>  
-<span class="nx">myObj</span><span class="p">[</span><span class="nx">fooSym</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;baz&#39;</span><span class="p">;</span>  
-<span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">myObj</span><span class="p">);</span> <span class="c1">// -&gt; [ &#39;foo&#39; ]  </span>
-<span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">myObj</span><span class="p">);</span> <span class="c1">// -&gt; [ &#39;foo&#39; ]  </span>
+<span class="nx">myObj</span><span class="p">[</span><span class="s1">'foo'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'bar'</span><span class="p">;</span>  
+<span class="nx">myObj</span><span class="p">[</span><span class="nx">fooSym</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'baz'</span><span class="p">;</span>  
+<span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">myObj</span><span class="p">);</span> <span class="c1">// -&gt; [ 'foo' ]  </span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">myObj</span><span class="p">);</span> <span class="c1">// -&gt; [ 'foo' ]  </span>
 <span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertySymbols</span><span class="p">(</span><span class="nx">myObj</span><span class="p">);</span> <span class="c1">// -&gt; [ Symbol(foo) ]  </span>
-<span class="nx">assert</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertySymbols</span><span class="p">(</span><span class="nx">myObj</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="nx">fooSym</span><span class="p">);</span></code></pre></div>
+<span class="nx">assert</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertySymbols</span><span class="p">(</span><span class="nx">myObj</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="nx">fooSym</span><span class="p">);</span>  </code></pre></figure>
 
 <h1 id="symbolfor-not-unique">Symbol.for: not unique</h1>
 <blockquote>
@@ -259,28 +260,28 @@ primitive data type.</p>
 This method creates a Symbol in a “global Symbol registry”.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{};</span>  
-<span class="kd">var</span> <span class="nx">fooSym</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>  
-<span class="kd">var</span> <span class="nx">otherSym</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>  
-<span class="nx">myObj</span><span class="p">[</span><span class="nx">fooSym</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;baz&#39;</span><span class="p">;</span>  
-<span class="nx">myObj</span><span class="p">[</span><span class="nx">otherSym</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bing&#39;</span><span class="p">;</span>  
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{};</span>  
+<span class="kd">var</span> <span class="nx">fooSym</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">);</span>  
+<span class="kd">var</span> <span class="nx">otherSym</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">.</span><span class="k">for</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">);</span>  
+<span class="nx">myObj</span><span class="p">[</span><span class="nx">fooSym</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'baz'</span><span class="p">;</span>  
+<span class="nx">myObj</span><span class="p">[</span><span class="nx">otherSym</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'bing'</span><span class="p">;</span>  
 <span class="nx">assert</span><span class="p">(</span><span class="nx">fooSym</span> <span class="o">===</span> <span class="nx">otherSym</span><span class="p">);</span>  
-<span class="nx">assert</span><span class="p">(</span><span class="nx">myObj</span><span class="p">[</span><span class="nx">fooSym</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;bing&#39;</span><span class="p">);</span>  
-<span class="nx">assert</span><span class="p">(</span><span class="nx">myObj</span><span class="p">[</span><span class="nx">otherSym</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;bing&#39;</span><span class="p">);</span></code></pre></div>
+<span class="nx">assert</span><span class="p">(</span><span class="nx">myObj</span><span class="p">[</span><span class="nx">fooSym</span><span class="p">]</span> <span class="o">===</span> <span class="s1">'bing'</span><span class="p">);</span>  
+<span class="nx">assert</span><span class="p">(</span><span class="nx">myObj</span><span class="p">[</span><span class="nx">otherSym</span><span class="p">]</span> <span class="o">===</span> <span class="s1">'bing'</span><span class="p">);</span></code></pre></figure>
 
 <h1 id="iterator-and-iterable">Iterator and Iterable</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">];</span>          <span class="c1">// array is iterable</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">];</span>          <span class="c1">// array is iterable</span>
 <span class="kd">let</span> <span class="nx">iter</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">Symbol</span><span class="p">.</span><span class="nx">iterator</span><span class="p">]();</span>  <span class="c1">// iter is iterator</span>
 
-<span class="nx">iter</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span> <span class="c1">// { value: &#39;a&#39;, done: false }</span>
-<span class="nx">iter</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span> <span class="c1">// { value: &#39;b&#39;, done: false }</span>
-<span class="nx">iter</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span> <span class="c1">// { value: &#39;c&#39;, done: false }</span>
+<span class="nx">iter</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span> <span class="c1">// { value: 'a', done: false }</span>
+<span class="nx">iter</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span> <span class="c1">// { value: 'b', done: false }</span>
+<span class="nx">iter</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span> <span class="c1">// { value: 'c', done: false }</span>
 <span class="nx">iter</span><span class="p">.</span><span class="nx">next</span><span class="p">()</span> <span class="c1">// { value: undefined, done: true }</span>
 
 <span class="c1">// By default, objects are not iterable</span>
 <span class="c1">// but we can try</span>
-<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;hmmm&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">23</span><span class="p">,</span> <span class="nx">address</span><span class="o">:</span> <span class="p">{</span><span class="nx">city</span><span class="o">:</span> <span class="s1">&#39;ny&#39;</span><span class="p">,</span> <span class="nx">state</span><span class="o">:</span> <span class="s1">&#39;bihar&#39;</span><span class="p">}};</span>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="s1">'hmmm'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="na">address</span><span class="p">:</span> <span class="p">{</span><span class="na">city</span><span class="p">:</span> <span class="s1">'ny'</span><span class="p">,</span> <span class="na">state</span><span class="p">:</span> <span class="s1">'bihar'</span><span class="p">}};</span>
 
 <span class="c1">// add iterator function</span>
 <span class="nx">a</span><span class="p">[</span><span class="nx">Symbol</span><span class="p">.</span><span class="nx">iterator</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -289,11 +290,11 @@ This method creates a Symbol in a “global Symbol registry”.</p>
     <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 
     <span class="k">return</span> <span class="p">{</span>
-       <span class="nx">next</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+       <span class="na">next</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
 
-           <span class="k">return</span> <span class="nx">nextIndex</span> <span class="o">&lt;</span> <span class="nx">keys</span><span class="p">.</span><span class="nx">length</span> <span class="o">?</span>
-               <span class="p">{</span><span class="nx">value</span><span class="o">:</span> <span class="nx">self</span><span class="p">[</span><span class="nx">keys</span><span class="p">[</span><span class="nx">nextIndex</span><span class="o">++</span><span class="p">]],</span> <span class="nx">done</span><span class="o">:</span> <span class="kc">false</span><span class="p">}</span> <span class="o">:</span>
-               <span class="p">{</span><span class="nx">done</span><span class="o">:</span> <span class="kc">true</span><span class="p">};</span>
+           <span class="k">return</span> <span class="nx">nextIndex</span> <span class="o">&lt;</span> <span class="nx">keys</span><span class="p">.</span><span class="nx">length</span> <span class="p">?</span>
+               <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="nx">self</span><span class="p">[</span><span class="nx">keys</span><span class="p">[</span><span class="nx">nextIndex</span><span class="o">++</span><span class="p">]],</span> <span class="na">done</span><span class="p">:</span> <span class="kc">false</span><span class="p">}</span> <span class="p">:</span>
+               <span class="p">{</span><span class="na">done</span><span class="p">:</span> <span class="kc">true</span><span class="p">};</span>
        <span class="p">}</span>
     <span class="p">};</span>  
 <span class="p">};</span>
@@ -303,92 +304,92 @@ This method creates a Symbol in a “global Symbol registry”.</p>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span></code></pre></div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">());</span></code></pre></figure>
 
 <h1 id="for---of">For - of</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">x</span> <span class="nx">of</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">x</span> <span class="nx">of</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">])</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="c1">// Output:</span>
-<span class="c1">// &#39;a&#39;</span>
-<span class="c1">// &#39;b&#39;</span>
+<span class="c1">// 'a'</span>
+<span class="c1">// 'b'</span>
 
-<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">().</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">().</span><span class="nx">set</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="nx">set</span><span class="p">(</span><span class="s1">'b'</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">pair</span> <span class="nx">of</span> <span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">pair</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="c1">// Output:</span>
-<span class="c1">// [&#39;a&#39;, 1]</span>
-<span class="c1">// [&#39;b&#39;, 2]</span>
+<span class="c1">// ['a', 1]</span>
+<span class="c1">// ['b', 2]</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">x</span> <span class="nx">of</span> <span class="p">{})</span> <span class="p">{</span> <span class="c1">// TypeError</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <h1 id="sets">Sets</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">();</span>
-<span class="nx">s</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;goodbye&quot;</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">();</span>
+<span class="nx">s</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s2">"goodbye"</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">);</span>
 <span class="nx">s</span><span class="p">.</span><span class="nx">size</span> <span class="o">===</span> <span class="mi">2</span><span class="p">;</span>
-<span class="nx">s</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">;</span></code></pre></div>
+<span class="nx">s</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">;</span></code></pre></figure>
 
 <h1 id="maps">Maps</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
-<span class="nx">m</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+<span class="nx">m</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
 <span class="nx">m</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">34</span><span class="p">);</span>
-<span class="nx">m</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">34</span><span class="p">;</span></code></pre></div>
+<span class="nx">m</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">34</span><span class="p">;</span></code></pre></figure>
 
 <h1 id="weakmaps">WeakMaps</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// provides leak-free object-key’d side tables.</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// provides leak-free object-key’d side tables.</span>
 <span class="kd">var</span> <span class="nx">wm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakMap</span><span class="p">();</span>
-<span class="nx">wm</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="p">{</span> <span class="nx">extra</span><span class="o">:</span> <span class="mi">42</span> <span class="p">});</span>
-<span class="nx">wm</span><span class="p">.</span><span class="nx">size</span> <span class="o">===</span> <span class="kc">undefined</span></code></pre></div>
+<span class="nx">wm</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="p">{</span> <span class="na">extra</span><span class="p">:</span> <span class="mi">42</span> <span class="p">});</span>
+<span class="nx">wm</span><span class="p">.</span><span class="nx">size</span> <span class="o">===</span> <span class="kc">undefined</span></code></pre></figure>
 
 <h1 id="weak-sets">Weak Sets</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakSet</span><span class="p">();</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">data</span><span class="o">:</span> <span class="mi">42</span> <span class="p">});</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WeakSet</span><span class="p">();</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="na">data</span><span class="p">:</span> <span class="mi">42</span> <span class="p">});</span>
 <span class="c1">// Because the added object has no other references,</span>
-<span class="c1">// it will not be held in the set.</span></code></pre></div>
+<span class="c1">// it will not be held in the set.</span></code></pre></figure>
 
 <h1 id="newly-added-apis">Newly added APIs</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="s1">&#39;hello&#39;</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;hell&#39;</span><span class="p">)</span> <span class="c1">// true</span>
-<span class="s1">&#39;hello&#39;</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;ello&#39;</span><span class="p">)</span> <span class="c1">// true</span>
-<span class="s1">&#39;hello&#39;</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;ell&#39;</span><span class="p">)</span> <span class="c1">// true</span>
-<span class="s1">&#39;doo &#39;</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>      <span class="c1">// &#39;doo doo doo &#39;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="s1">'hello'</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">'hell'</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="s1">'hello'</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">'ello'</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="s1">'hello'</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">'ell'</span><span class="p">)</span> <span class="c1">// true</span>
+<span class="s1">'doo '</span><span class="p">.</span><span class="nx">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>      <span class="c1">// 'doo doo doo '</span></code></pre></figure>
 
 <h1 id="arrayfrom">Array.from</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Convert array-like structure to array</span>
-<span class="kd">let</span> <span class="nx">lis</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;ul.fancy li&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Convert array-like structure to array</span>
+<span class="kd">let</span> <span class="nx">lis</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'ul.fancy li'</span><span class="p">);</span>
 <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">lis</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">li</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span>
 <span class="p">});</span>
  
-<span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">([</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">].</span><span class="nx">keys</span><span class="p">())</span>	<span class="c1">// [ 0, 1 ]</span>
-<span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">([</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">].</span><span class="nx">values</span><span class="p">())</span> <span class="c1">// [ &#39;a&#39;, &#39;b&#39; ]</span>
-<span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">([</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">].</span><span class="nx">entries</span><span class="p">())</span> <span class="c1">// [ [ 0, &#39;a&#39; ], [ 1, &#39;b&#39; ] ]</span></code></pre></div>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">([</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span> <span class="p">].</span><span class="nx">keys</span><span class="p">())</span>	<span class="c1">// [ 0, 1 ]</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">([</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span> <span class="p">].</span><span class="nx">values</span><span class="p">())</span> <span class="c1">// [ 'a', 'b' ]</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">([</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span> <span class="p">].</span><span class="nx">entries</span><span class="p">())</span> <span class="c1">// [ [ 0, 'a' ], [ 1, 'b' ] ]</span></code></pre></figure>
 
 <h1 id="now-the-much-awaited---generators">Now the much awaited - Generators</h1>
 <blockquote>
   <p>They are mystical, nobody have seen them but some people say that they looks like a function though do not 
 behave like them. Well, that’s strange. Let me tell you the long story short. With ES6 generators, we 
 have a different kind of function, which may be paused in the middle, one or many times, and resumed later, 
-allowing other code to run during these paused periods. So they kind of use <code>yield</code> keyword to stop where ever 
-they want ( like a <code>debugger</code> in Chrome ). Let’s see that in action.</p>
+allowing other code to run during these paused periods. So they kind of use <code class="highlighter-rouge">yield</code> keyword to stop where ever 
+they want ( like a <code class="highlighter-rouge">debugger</code> in Chrome ). Let’s see that in action.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="o">*</span><span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="k">yield</span> <span class="s2">&quot;foo&quot;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="o">*</span><span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="k">yield</span> <span class="s2">"foo"</span><span class="p">);</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nx">it</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">();</span>
-<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> 	<span class="c1">// reutrns { done: false, value: &quot;foo&quot; }</span>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> 	<span class="c1">// reutrns { done: false, value: "foo" }</span>
 <span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>     <span class="c1">// prints x as NaN and returns { done: true, value: undefined }</span>
 <span class="c1">// now once all the yields are done </span>
 <span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>    <span class="c1">//  returns { done: true, value: undefined }</span>
@@ -407,13 +408,13 @@ they want ( like a <code>debugger</code> in Chrome ). Let’s see that in action
 <span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { value:3, done:false }</span>
 <span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { value:4, done:false }</span>
 <span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { value:5, done:false }</span>
-<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { value:undefined, done:true }</span></code></pre></div>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// { value:undefined, done:true }</span></code></pre></figure>
 
 <blockquote>
-  <p>Till now we have only seen <code>Generators</code> yielding something everytime, but there is more to it - you can talk too.</p>
+  <p>Till now we have only seen <code class="highlighter-rouge">Generators</code> yielding something everytime, but there is more to it - you can talk too.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="o">*</span><span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="o">*</span><span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="k">yield</span> <span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
     <span class="kd">var</span> <span class="nx">z</span> <span class="o">=</span> <span class="k">yield</span> <span class="p">(</span><span class="nx">y</span> <span class="o">/</span> <span class="mi">3</span><span class="p">);</span>
     <span class="k">return</span> <span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">z</span><span class="p">);</span>
@@ -424,7 +425,7 @@ they want ( like a <code>debugger</code> in Chrome ). Let’s see that in action
 <span class="c1">// note: not sending anything into `next()` here</span>
 <span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>       <span class="c1">// { value:6, done:false }</span>
 <span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span> <span class="mi">12</span> <span class="p">);</span>   <span class="c1">// { value:8, done:false }</span>
-<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span> <span class="mi">13</span> <span class="p">);</span>   <span class="c1">// { value:42, done:true }</span></code></pre></div>
+<span class="nx">it</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span> <span class="mi">13</span> <span class="p">);</span>   <span class="c1">// { value:42, done:true }</span></code></pre></figure>
 
 
   </article>

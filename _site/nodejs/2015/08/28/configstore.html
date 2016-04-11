@@ -62,46 +62,46 @@
   </header>
 
   <article class="post-content">
-    <h4 id="first-things-first-do-npm-install-configstore">First things first, do <code>npm install configstore</code></h4>
+    <h4 id="first-things-first-do-npm-install-configstore">First things first, do <code class="highlighter-rouge">npm install configstore</code></h4>
 
 <p>As the name speaks for itself, it helps you configure your config file.</p>
 
 <h4 id="locate-the-config-file">Locate the config file</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">Configstore</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;configstore&#39;</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Configstore</span><span class="p">(</span><span class="s1">&#39;my-app-config&#39;</span><span class="p">);</span>
-    <span class="c1">// will be created at `~/.config/configstore/my-app-config.json`</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">Configstore</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'configstore'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Configstore</span><span class="p">(</span><span class="s1">'my-app-config'</span><span class="p">);</span>
+    <span class="c1">// will be created at `~/.config/configstore/my-app-config.json`</span></code></pre></figure>
 
 <h4 id="operations">Operations</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// set values</span>
-    <span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Bush&#39;</span><span class="p">);</span>
-    <span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;says&#39;</span><span class="p">,</span> <span class="s1">&#39;I am a killer.&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">// set values</span>
+    <span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Bush'</span><span class="p">);</span>
+    <span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'says'</span><span class="p">,</span> <span class="s1">'I am a killer.'</span><span class="p">);</span>
 
-    <span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="p">{</span>
-     <span class="nx">city</span><span class="o">:</span> <span class="s1">&#39;bangalore&#39;</span><span class="p">,</span>
-     <span class="nx">state</span><span class="o">:</span> <span class="s1">&#39;KA&#39;</span><span class="p">,</span>
-     <span class="nx">street</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">flatno</span><span class="o">:</span> <span class="mi">135</span><span class="p">,</span>
-        <span class="nx">block</span><span class="o">:</span> <span class="s1">&#39;snowdrop&#39;</span>
+    <span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'address'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="na">city</span><span class="p">:</span> <span class="s1">'bangalore'</span><span class="p">,</span>
+     <span class="na">state</span><span class="p">:</span> <span class="s1">'KA'</span><span class="p">,</span>
+     <span class="na">street</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">flatno</span><span class="p">:</span> <span class="mi">135</span><span class="p">,</span>
+        <span class="na">block</span><span class="p">:</span> <span class="s1">'snowdrop'</span>
      <span class="p">}</span>
     <span class="p">});</span>
 
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span>
 
     <span class="c1">// delete the property value</span>
-    <span class="nx">config</span><span class="p">.</span><span class="nx">del</span><span class="p">(</span><span class="s1">&#39;says&#39;</span><span class="p">);</span>
+    <span class="nx">config</span><span class="p">.</span><span class="nx">del</span><span class="p">(</span><span class="s1">'says'</span><span class="p">);</span>
 
     <span class="c1">// get the property value</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'name'</span><span class="p">));</span>
 
     <span class="c1">// get all</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">all</span><span class="p">);</span> 
 
     <span class="c1">// reset all</span>
     <span class="nx">config</span><span class="p">.</span><span class="nx">all</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;Go to sleep.&#39;</span>
-    <span class="p">}</span></code></pre></div>
+        <span class="na">msg</span><span class="p">:</span> <span class="s1">'Go to sleep.'</span>
+    <span class="p">}</span> </code></pre></figure>
 
 <p>Check out <a href="https://www.npmjs.com/package/configstore">more</a></p>
 

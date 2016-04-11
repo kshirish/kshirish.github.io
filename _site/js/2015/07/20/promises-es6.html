@@ -64,40 +64,40 @@
   <article class="post-content">
     <h1 id="promises-in-es6">Promises in ES6</h1>
 <blockquote>
-  <p><code>Promises</code> have been introduced natively as a part of ES6 now. In this blogpost hopefully I will
-try to explore all the aspects of <code>Promises</code>.</p>
+  <p><code class="highlighter-rouge">Promises</code> have been introduced natively as a part of ES6 now. In this blogpost hopefully I will
+try to explore all the aspects of <code class="highlighter-rouge">Promises</code>.</p>
 </blockquote>
 
 <h2 id="so-what-is-a-promise">So what is a Promise?</h2>
 <blockquote>
-  <p><code>Promises</code> are merely a prettier way of writing code which makes an asynchronous code look like synchronous.</p>
+  <p><code class="highlighter-rouge">Promises</code> are merely a prettier way of writing code which makes an asynchronous code look like synchronous.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Usual way of XHR </span>
-<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;script.php&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your account has been created successfully!&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Usual way of XHR </span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"script.php"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Your account has been created successfully!'</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="c1">// With jQuery Promises</span>
 <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-	<span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;script.php&quot;</span><span class="p">,</span>
-	<span class="nx">method</span><span class="o">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-	<span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
-		<span class="s1">&#39;user&#39;</span><span class="o">:</span> <span class="nx">formData</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
-		<span class="s1">&#39;pwd&#39;</span><span class="o">:</span> <span class="nx">formData</span><span class="p">.</span><span class="nx">password</span>
+	<span class="na">url</span><span class="p">:</span> <span class="s2">"script.php"</span><span class="p">,</span>
+	<span class="na">method</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+	<span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s1">'user'</span><span class="p">:</span> <span class="nx">formData</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+		<span class="s1">'pwd'</span><span class="p">:</span> <span class="nx">formData</span><span class="p">.</span><span class="nx">password</span>
 	<span class="p">}</span>
 <span class="p">});</span>
 
 <span class="nx">request</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Your account has been created successfully!&#39;</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Your account has been created successfully!'</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="nx">request</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">jqXHR</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Looks like the account already exists&#39;</span><span class="p">);</span>
-<span class="p">});</span></code></pre></div>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Looks like the account already exists'</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
 
 <blockquote>
-  <p><code>Promises</code> are very much similar to event handling but there are some minor differences.
+  <p><code class="highlighter-rouge">Promises</code> are very much similar to event handling but there are some minor differences.
 A promise can only succeed or fail once.
 If a promise has succeeded or failed and you later add a success/failure callback,
 the correct callback will be called, even though the event took place earlier</p>
@@ -105,15 +105,15 @@ the correct callback will be called, even though the event took place earlier</p
 
 <blockquote>
   <p>Promises have been around for a while in the form of libraries, 
-like <code>Q</code> and <code>when</code> which have a standardised behaviour called Promises/A+ same as <code>ES6 Promises</code>.
+like <code class="highlighter-rouge">Q</code> and <code class="highlighter-rouge">when</code> which have a standardised behaviour called Promises/A+ same as <code class="highlighter-rouge">ES6 Promises</code>.
 jQuery also has a Promise type called deferreds but they are not Promises/A+ compliant.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
 
 	<span class="c1">// do your async thing</span>
 	<span class="kd">var</span> <span class="nx">req</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
-	<span class="nx">req</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="nx">url</span><span class="p">);</span>
+	<span class="nx">req</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="nx">url</span><span class="p">);</span>
 
 	<span class="nx">req</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 		<span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
@@ -124,7 +124,7 @@ jQuery also has a Promise type called deferreds but they are not Promises/A+ com
 	<span class="p">};</span>
 
 	<span class="nx">req</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-		<span class="nx">reject</span><span class="p">(</span><span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;Network Error&quot;</span><span class="p">));</span> <span class="c1">// reject here</span>
+		<span class="nx">reject</span><span class="p">(</span><span class="nb">Error</span><span class="p">(</span><span class="s2">"Network Error"</span><span class="p">));</span> <span class="c1">// reject here</span>
 	<span class="p">};</span>
 
 	<span class="nx">req</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
@@ -134,11 +134,11 @@ jQuery also has a Promise type called deferreds but they are not Promises/A+ com
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// Response</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// if Rejected</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="c1">// Error</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <h1 id="chaining---when-you-have-mutiple-ajax-to-do">Chaining - when you have mutiple Ajax to do.</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 	<span class="k">if</span> <span class="p">(</span> <span class="cm">/* condition */</span> <span class="p">)</span> <span class="p">{</span>
 		<span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -158,49 +158,49 @@ jQuery also has a Promise type called deferreds but they are not Promises/A+ com
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">err</span><span class="o">--</span><span class="p">;</span>
 	<span class="k">return</span> <span class="nx">err</span><span class="p">;</span>
-<span class="p">})</span></code></pre></div>
+<span class="p">})</span></code></pre></figure>
 
 <h1 id="use-chaining-as-middlewares">Use chaining as middlewares</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;story.json&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">get</span><span class="p">(</span><span class="s1">'story.json'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Yey JSON!&quot;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Yey JSON!"</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="c1">// `then` is smarter than this so if you return a promise</span>
 <span class="c1">// the next `then` waits for that `promise` to get resolved</span>
-<span class="nx">getJSON</span><span class="p">(</span><span class="s1">&#39;story.json&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">story</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">getJSON</span><span class="p">(</span><span class="s1">'story.json'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">story</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="nx">getJSON</span><span class="p">(</span><span class="nx">story</span><span class="p">.</span><span class="nx">chapterUrls</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">chapter1</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Got chapter 1!&quot;</span><span class="p">,</span> <span class="nx">chapter1</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Got chapter 1!"</span><span class="p">,</span> <span class="nx">chapter1</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="c1">// case 1:</span>
-<span class="nx">get</span><span class="p">(</span><span class="s1">&#39;story.json&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Success!&quot;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="nx">get</span><span class="p">(</span><span class="s1">'story.json'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Success!"</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Failed!&quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Failed!"</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="c1">// case 2: Suger for reject: `catch`</span>
-<span class="nx">get</span><span class="p">(</span><span class="s1">&#39;story.json&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Success!&quot;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="nx">get</span><span class="p">(</span><span class="s1">'story.json'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Success!"</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Failed!&quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Failed!"</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="c1">// case 3:</span>
-<span class="nx">get</span><span class="p">(</span><span class="s1">&#39;story.json&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Success!&quot;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="nx">get</span><span class="p">(</span><span class="s1">'story.json'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Success!"</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Failed!&quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
-<span class="p">});</span></code></pre></div>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Failed!"</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
 
 <blockquote>
   <p>Notice above three cases, only 2nd and 3rd are equivalent.
-If there is an error in <code>resolve</code> callback it will go to the next
-<code>then(undefined, function() {})</code> and <code>catch</code>
+If there is an error in <code class="highlighter-rouge">resolve</code> callback it will go to the next
+<code class="highlighter-rouge">then(undefined, function() {})</code> and <code class="highlighter-rouge">catch</code>
 which is not the case in 1st.
 In case 1: only will execute no matter what!</p>
 </blockquote>
@@ -208,10 +208,10 @@ In case 1: only will execute no matter what!</p>
 <blockquote>
   <p>Check out below example, you will notice one interesting thing
 if for some reason asyncThing1, asyncThing2 or asyncThing3 fails
-then it will go to the immediate <code>catch</code> block</p>
+then it will go to the immediate <code class="highlighter-rouge">catch</code> block</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">asyncThing1</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">asyncThing1</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="nx">asyncThing2</span><span class="p">();</span>
 <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="nx">asyncThing3</span><span class="p">();</span>
@@ -222,21 +222,21 @@ then it will go to the immediate <code>catch</code> block</p>
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="nx">asyncRecovery2</span><span class="p">();</span>
 <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Don&#39;t worry about it&quot;</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Don't worry about it"</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;All done!&quot;</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"All done!"</span><span class="p">);</span>
 <span class="p">});</span>
 
 
 <span class="c1">// Implicit error </span>
 <span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">resolve</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s2">&quot;This ain&#39;t JSON&quot;</span><span class="p">));</span>
+	<span class="nx">resolve</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s2">"This ain't JSON"</span><span class="p">));</span>
 <span class="p">});</span>
 
 <span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;It worked!&quot;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span> <span class="c1">// expected to come here but</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"It worked!"</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span> <span class="c1">// expected to come here but</span>
 <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;It failed!&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span> <span class="c1">// comes here</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"It failed!"</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span> <span class="c1">// comes here</span>
 <span class="p">});</span>
 
 <span class="c1">// I think I understood everything, now I can do things on my own.</span>
@@ -246,14 +246,14 @@ then it will go to the immediate <code>catch</code> block</p>
 		<span class="c1">// and add it to the page</span>
 		<span class="nx">addHtmlToPage</span><span class="p">(</span><span class="nx">chapter</span><span class="p">.</span><span class="nx">html</span><span class="p">);</span>
 	<span class="p">});</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <blockquote>
   <p>Not so quick!
-You got to learn the art of <code>sequence</code>.</p>
+You got to learn the art of <code class="highlighter-rouge">sequence</code>.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Start off with a promise that always resolves</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Start off with a promise that always resolves</span>
 <span class="kd">var</span> <span class="nx">sequence</span> <span class="o">=</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
 
 <span class="c1">// Loop through our chapter urls</span>
@@ -264,7 +264,7 @@ You got to learn the art of <code>sequence</code>.</p>
 	<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">chapter</span><span class="p">)</span> <span class="p">{</span>
 		<span class="nx">addHtmlToPage</span><span class="p">(</span><span class="nx">chapter</span><span class="p">.</span><span class="nx">html</span><span class="p">);</span>
 	<span class="p">});</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <blockquote>
   <p>Do you smell something wrong with the above approach ?
@@ -279,86 +279,86 @@ What we want to do is download them all at the same time,
 then process them when they’ve all arrived.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">arrayOfPromises</span> <span class="o">=</span> <span class="p">[</span>
-	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">&#39;http://api.openweathermap.org/data/2.5/weather?lat=35&amp;lon=139&#39;</span><span class="p">),</span>
-	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">&#39;http://api.icndb.com/jokes/random&#39;</span><span class="p">),</span>
-	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">&#39;http://api.openweathermap.org/data/2.5/weather?lat=135&amp;lon=19&#39;</span><span class="p">),</span>
-	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">&#39;http://api.icndb.com/jokes/random&#39;</span><span class="p">),</span>
-	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">&#39;http://api.openweathermap.org/data/2.5/weather?lat=15&amp;lon=29&#39;</span><span class="p">),</span>
-	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">&#39;http://api.icndb.com/jokes/random&#39;</span><span class="p">),</span>
-	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">&#39;http://api.openweathermap.org/data/2.5/weather?lat=13&amp;lon=90&#39;</span><span class="p">),</span>
-	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">&#39;http://api.icndb.com/jokes/random&#39;</span><span class="p">),</span>
-	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">&#39;http://api.icndb.com/jokes/random&#39;</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">arrayOfPromises</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">'http://api.openweathermap.org/data/2.5/weather?lat=35&amp;lon=139'</span><span class="p">),</span>
+	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">'http://api.icndb.com/jokes/random'</span><span class="p">),</span>
+	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">'http://api.openweathermap.org/data/2.5/weather?lat=135&amp;lon=19'</span><span class="p">),</span>
+	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">'http://api.icndb.com/jokes/random'</span><span class="p">),</span>
+	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">'http://api.openweathermap.org/data/2.5/weather?lat=15&amp;lon=29'</span><span class="p">),</span>
+	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">'http://api.icndb.com/jokes/random'</span><span class="p">),</span>
+	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">'http://api.openweathermap.org/data/2.5/weather?lat=13&amp;lon=90'</span><span class="p">),</span>
+	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">'http://api.icndb.com/jokes/random'</span><span class="p">),</span>
+	<span class="nx">getPromise</span><span class="p">(</span><span class="s1">'http://api.icndb.com/jokes/random'</span><span class="p">)</span>
 <span class="p">];</span>
 
 <span class="nx">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">arrayOfPromises</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayOfResults</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;All Promises got resolved!&#39;</span><span class="p">);</span> <span class="c1">// All Promises got resolved in same order they were called!</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'All Promises got resolved!'</span><span class="p">);</span> <span class="c1">// All Promises got resolved in same order they were called!</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arrayOfResults</span><span class="p">);</span>
 
 <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Atleast one of them died on the way!&#39;</span><span class="p">);</span> <span class="c1">// Atleast one of them died on the way!</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Atleast one of them died on the way!'</span><span class="p">);</span> <span class="c1">// Atleast one of them died on the way!</span>
 <span class="p">});</span>
 
 
 <span class="c1">// Description : Whatever resolves/rejects first will be returned</span>
 <span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">);</span>
+	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="s2">"one"</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">);</span>
+	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">"two"</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="nx">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
-<span class="p">});</span> <span class="c1">// &quot;two&quot;</span>
+<span class="p">});</span> <span class="c1">// "two"</span>
 
 <span class="kd">var</span> <span class="nx">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">);</span>
+	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">"three"</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">p4</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">reject</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="s2">&quot;four&quot;</span><span class="p">);</span>
+	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">reject</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="s2">"four"</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="nx">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span><span class="nx">p3</span><span class="p">,</span> <span class="nx">p4</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// &quot;three&quot;</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// "three"</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">reason</span><span class="p">)</span> <span class="p">{</span>
 	<span class="c1">// Not called</span>
 <span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">p5</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="s2">&quot;five&quot;</span><span class="p">);</span>
+	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="s2">"five"</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">p6</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">reject</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;six&quot;</span><span class="p">);</span>
+	<span class="nx">setTimeout</span><span class="p">(</span><span class="nx">reject</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">"six"</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="nx">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span><span class="nx">p5</span><span class="p">,</span> <span class="nx">p6</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
 	<span class="c1">// Not called              </span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">reason</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reason</span><span class="p">);</span> <span class="c1">// &quot;six&quot;</span>
-<span class="p">});</span></code></pre></div>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reason</span><span class="p">);</span> <span class="c1">// "six"</span>
+<span class="p">});</span></code></pre></figure>
 
 <h1 id="recipe-of-the-day-generators-and-promises">Recipe of the day: Generators and Promises</h1>
 <blockquote>
-  <p>Now comes the <code>Generators</code>.
+  <p>Now comes the <code class="highlighter-rouge">Generators</code>.
 It was not covered in detail in my other post about ES6.
 Let’s see what does it bring to the table.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="s1">&#39;http://www.html5rocks.com/en/tutorials/es6/promises/&#39;</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="s1">'http://www.html5rocks.com/en/tutorials/es6/promises/'</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">asyncFun</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">someUrl</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
 
@@ -368,12 +368,12 @@ Let’s see what does it bring to the table.</p>
 			<span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
 				<span class="nx">resolve</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
 			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-				<span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Empty Response&#39;</span><span class="p">);</span>
+				<span class="nx">reject</span><span class="p">(</span><span class="s1">'Empty Response'</span><span class="p">);</span>
 			<span class="p">}</span>
 		<span class="p">})</span>
 		<span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
 
-			<span class="nx">reject</span><span class="p">(</span><span class="s1">&#39;Empty Response&#39;</span><span class="p">);</span>
+			<span class="nx">reject</span><span class="p">(</span><span class="s1">'Empty Response'</span><span class="p">);</span>
 
 		<span class="p">});</span>
 
@@ -390,14 +390,14 @@ Let’s see what does it bring to the table.</p>
 
 <span class="kd">var</span> <span class="nx">addHtmlToPage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
 
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Below HTML added to page!&#39;</span><span class="p">);</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Below HTML added to page!'</span><span class="p">);</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="kd">function</span><span class="o">*</span> <span class="nx">generatorFun</span><span class="p">()</span> <span class="p">{</span>
 
-	<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="s1">&#39;http://www.html5rocks.com/en/tutorials/es6/promises/&#39;</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">stories</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">getPromise</span><span class="p">(</span><span class="nx">path</span> <span class="o">+</span> <span class="s1">&#39;story.json&#39;</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="s1">'http://www.html5rocks.com/en/tutorials/es6/promises/'</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">stories</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">getPromise</span><span class="p">(</span><span class="nx">path</span> <span class="o">+</span> <span class="s1">'story.json'</span><span class="p">);</span>
 
 	<span class="nx">stories</span><span class="p">.</span><span class="nx">chapterUrls</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">chapterUrl</span><span class="p">)</span> <span class="p">{</span>
 
@@ -431,7 +431,7 @@ Let’s see what does it bring to the table.</p>
 
 <span class="p">}</span>
 
-<span class="nx">runGenerator</span><span class="p">();</span></code></pre></div>
+<span class="nx">runGenerator</span><span class="p">();</span></code></pre></figure>
 
 <p>Read more <a href="http://www.html5rocks.com/en/tutorials/es6/promises/">here</a></p>
 

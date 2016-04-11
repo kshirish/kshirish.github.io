@@ -62,24 +62,25 @@
   </header>
 
   <article class="post-content">
-    <h4 id="first-things-first-do-npm-install-chalk">First things first, do <code>npm install chalk</code></h4>
+    <h4 id="first-things-first-do-npm-install-chalk">First things first, do <code class="highlighter-rouge">npm install chalk</code></h4>
 
 <h4 id="basic-usage">Basic usage</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">chalk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chalk&#39;</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>  <span class="nx">chalk</span><span class="p">.</span><span class="nx">underline</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; World !&#39;</span><span class="p">)</span>  <span class="p">);</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">chalk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'chalk'</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>  <span class="nx">chalk</span><span class="p">.</span><span class="nx">underline</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' World !'</span><span class="p">)</span>  <span class="p">);</span></code></pre></figure>
 
 <h4 id="chaining">Chaining</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>  <span class="nx">chalk</span><span class="p">.</span><span class="nx">red</span><span class="p">.</span><span class="nx">bgWhite</span><span class="p">.</span><span class="nx">bold</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>  <span class="p">);</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>  <span class="nx">chalk</span><span class="p">.</span><span class="nx">red</span><span class="p">.</span><span class="nx">bgWhite</span><span class="p">.</span><span class="nx">bold</span><span class="p">(</span><span class="s1">'Hello world!'</span><span class="p">)</span>  <span class="p">);</span></code></pre></figure>
 
 <h4 id="see-all-styles-in-action">See all styles in action</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">chalk</span><span class="p">.</span><span class="nx">styles</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">style</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span><span class="p">(</span> <span class="nx">style</span> <span class="o">!==</span> <span class="s2">&quot;reset&quot;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">chalk</span><span class="p">[</span><span class="nx">style</span><span class="p">](</span><span class="nx">style</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">chalk</span><span class="p">.</span><span class="nx">styles</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">style</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span> <span class="nx">style</span> <span class="o">!==</span> <span class="s2">"reset"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">chalk</span><span class="p">[</span><span class="nx">style</span><span class="p">](</span><span class="nx">style</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' '</span><span class="p">);</span>
       <span class="p">}</span>
-  <span class="p">});</span></code></pre></div>
+  <span class="p">});</span>
+  </code></pre></figure>
 
 <p>Check out <a href="https://www.npmjs.com/package/chalk">more</a></p>
 

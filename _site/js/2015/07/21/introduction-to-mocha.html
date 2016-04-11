@@ -62,33 +62,33 @@
   </header>
 
   <article class="post-content">
-    <h1 id="what-is-mocha">What is Mocha?</h1>
-<p>Mocha is a JavaScript test framework running on Node.js and the browser which makes asynchronous testing smooth.</p>
+    <p>#What is Mocha?
+Mocha is a JavaScript test framework running on Node.js and the browser which makes asynchronous testing smooth.</p>
 
 <h1 id="baby-step">Baby step!</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Array&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// suite</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">describe</span><span class="p">(</span><span class="s1">'Array'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// suite</span>
 
-        <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;#indexOf()&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// suite</span>
+        <span class="nx">describe</span><span class="p">(</span><span class="s1">'#indexOf()'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// suite</span>
 
-            <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should not return -1 when the value is present&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>   <span class="c1">// test</span>
+            <span class="nx">it</span><span class="p">(</span><span class="s1">'should not return -1 when the value is present'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>   <span class="c1">// test</span>
                 <span class="nx">assert</span><span class="p">.</span><span class="nx">notEqual</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
             <span class="p">});</span>
 
-            <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should return -1 when the value is not present&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>   <span class="c1">// test</span>
+            <span class="nx">it</span><span class="p">(</span><span class="s1">'should return -1 when the value is not present'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>   <span class="c1">// test</span>
                 <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
                 <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
             <span class="p">});</span>
 
         <span class="p">});</span>
-    <span class="p">});</span></code></pre></div>
+    <span class="p">});</span></code></pre></figure>
 
 <h1 id="diving-into-async-storm">Diving into async storm!</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// it uses `done`, just call it after you think your async will be finished</span>
-<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;SetTimeOut&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// it uses `done`, just call it after you think your async will be finished</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'SetTimeOut'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;do not why everyone is scared of me&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s1">'do not why everyone is scared of me'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
             <span class="nx">done</span><span class="p">();</span>
@@ -98,13 +98,13 @@
         <span class="c1">// flag --timeout 13000 or</span>
         <span class="c1">// programatically - this.timeout(13000)</span>
     <span class="p">});</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <h1 id="delay-the-root-suite">Delay the root suite!</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-        <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;master of all suites&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">describe</span><span class="p">(</span><span class="s1">'master of all suites'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="c1">// write your cases here ..    </span>
         <span class="p">});</span>
 
@@ -112,80 +112,80 @@
         <span class="c1">// again use flag --delay to use `run` function.</span>
     <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
 
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Timer begins for 3 seconds atleast&#39;</span><span class="p">);</span></code></pre></div>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Timer begins for 3 seconds atleast'</span><span class="p">);</span></code></pre></figure>
 
 <h1 id="hooks">Hooks</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;mocha hooks&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">describe</span><span class="p">(</span><span class="s1">'mocha hooks'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="nx">before</span><span class="p">(</span><span class="s1">&#39;description here&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">before</span><span class="p">(</span><span class="s1">'description here'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
         <span class="c1">// runs before all test in this block</span>
     <span class="p">});</span>
 
-    <span class="nx">after</span><span class="p">(</span><span class="s1">&#39;description here&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">after</span><span class="p">(</span><span class="s1">'description here'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
         <span class="c1">// runs after all test in this block</span>
     <span class="p">});</span>
 
-    <span class="nx">beforeEach</span><span class="p">(</span><span class="s1">&#39;description here&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">beforeEach</span><span class="p">(</span><span class="s1">'description here'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
         <span class="c1">// runs before each test in this block</span>
     <span class="p">});</span>
 
-    <span class="nx">afterEach</span><span class="p">(</span><span class="s1">&#39;description here&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">afterEach</span><span class="p">(</span><span class="s1">'description here'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
         <span class="c1">// runs after each test in this block</span>
     <span class="p">});</span>
 
     <span class="c1">// your test cases here ..</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <h1 id="juggling-async-promises">Juggling async Promises</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// using chai-as-promised</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// using chai-as-promised</span>
 <span class="c1">// bad</span>
 <span class="nx">doSomethingAsync</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">result</span><span class="p">.</span><span class="nx">should</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">should</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">)</span>
     <span class="nx">done</span><span class="p">();</span>
 <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">done</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="c1">// good</span>
-<span class="k">return</span> <span class="nx">doSomethingAsync</span><span class="p">().</span><span class="nx">should</span><span class="p">.</span><span class="nx">eventually</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="k">return</span> <span class="nx">doSomethingAsync</span><span class="p">().</span><span class="nx">should</span><span class="p">.</span><span class="nx">eventually</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">);</span>
 
-<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Promises&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'Promises'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;deal with promises&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s1">'deal with promises'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="c1">// (2+2).should.equal(4)</span>
         <span class="c1">// or</span>
         <span class="k">return</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">).</span><span class="nx">should</span><span class="p">.</span><span class="nx">eventually</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
     <span class="p">});</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <h1 id="dynamically-generating-test-suites">Dynamically generating test suites</h1>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// adds only two numbers</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// adds only two numbers</span>
 <span class="kd">function</span> <span class="nx">add</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 <span class="p">}</span>
 
-<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;add()&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'add()'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">tests</span> <span class="o">=</span> <span class="p">[{</span>
-        <span class="nx">args</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span>
-        <span class="nx">expected</span><span class="o">:</span> <span class="mi">22</span>
+        <span class="na">args</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span>
+        <span class="na">expected</span><span class="p">:</span> <span class="mi">22</span>
     <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">args</span><span class="o">:</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-        <span class="nx">expected</span><span class="o">:</span> <span class="mi">14</span>
+        <span class="na">args</span><span class="p">:</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="na">expected</span><span class="p">:</span> <span class="mi">14</span>
     <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">args</span><span class="o">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span>
-        <span class="nx">expected</span><span class="o">:</span> <span class="mi">27</span>
+        <span class="na">args</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span>
+        <span class="na">expected</span><span class="p">:</span> <span class="mi">27</span>
     <span class="p">}];</span>
 
     <span class="nx">tests</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">test</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;correctly adds &#39;</span> <span class="o">+</span> <span class="nx">test</span><span class="p">.</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="s1">&#39; args&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">it</span><span class="p">(</span><span class="s1">'correctly adds '</span> <span class="o">+</span> <span class="nx">test</span><span class="p">.</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="s1">' args'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">add</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">test</span><span class="p">.</span><span class="nx">args</span><span class="p">);</span>
             <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">test</span><span class="p">.</span><span class="nx">expected</span><span class="p">);</span>
         <span class="p">});</span>
     <span class="p">});</span>
-<span class="p">});</span></code></pre></div>
+<span class="p">});</span></code></pre></figure>
 
 <p>Check out the <a href="http://mochajs.org/#getting-started">docs</a></p>
 

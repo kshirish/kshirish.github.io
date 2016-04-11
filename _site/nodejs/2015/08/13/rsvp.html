@@ -64,34 +64,34 @@
   <article class="post-content">
     <p>RSVP is another node module which implements <strong>Promises/A+</strong>.
 It provides all the usual <a href="/js/2015/07/20/promises-es6.html">promise</a> features, in addition to that it
-gives <code>hashSettled()</code> which contains the status and data of promise(s)
+gives <code class="highlighter-rouge">hashSettled()</code> which contains the status and data of promise(s)
 irrespective of it being resolved or rejected.</p>
 
-<h4 id="first-things-first-do-npm-install-rsvp">First things first, do <code>npm install rsvp</code></h4>
+<h4 id="first-things-first-do-npm-install-rsvp">First things first, do <code class="highlighter-rouge">npm install rsvp</code></h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">rsvp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;rsvp&#39;</span><span class="p">);</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">rsvp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'rsvp'</span><span class="p">);</span></code></pre></figure>
 
-<h3 id="a-fake-xhr">A fake <code>xhr</code></h3>
+<h3 id="a-fake-xhr">A fake <code class="highlighter-rouge">xhr</code></h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">someAsyncFunction</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">letsResolveIt</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">someAsyncFunction</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">letsResolveIt</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="nx">letsResolveIt</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nx">resolve</span><span class="p">({</span>
-                    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;mohan&#39;</span><span class="p">,</span>
-                    <span class="nx">age</span><span class="o">:</span> <span class="mi">55</span>
+                    <span class="na">name</span><span class="p">:</span> <span class="s1">'mohan'</span><span class="p">,</span>
+                    <span class="na">age</span><span class="p">:</span> <span class="mi">55</span>
                 <span class="p">});</span>
             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
                 <span class="nx">reject</span><span class="p">({</span>
-                    <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;could not find the info&#39;</span>
+                    <span class="na">msg</span><span class="p">:</span> <span class="s1">'could not find the info'</span>
                 <span class="p">});</span>
             <span class="p">}</span>
         <span class="p">},</span> <span class="mi">3000</span><span class="p">);</span>
-    <span class="p">};</span></code></pre></div>
+    <span class="p">};</span></code></pre></figure>
 
 <h3 id="basic-promise">Basic promise</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">someAsyncFunction</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
     <span class="p">});</span>
 
@@ -105,56 +105,56 @@ irrespective of it being resolved or rejected.</p>
         <span class="c1">// letsResolveIt is false</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
 
-    <span class="p">});</span></code></pre></div>
+    <span class="p">});</span></code></pre></figure>
 
 <h3 id="chaining">Chaining</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">someAsyncFunction</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
     <span class="p">});</span>
 
     <span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="c1">// letsResolveIt is true</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Passing to 2nd chain&#39;</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Passing to 2nd chain'</span><span class="p">);</span>
         <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
 
     <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="c1">// letsResolveIt is true</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Passing to 3rd chain&#39;</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Passing to 3rd chain'</span><span class="p">);</span>
         <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
 
     <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="c1">// letsResolveIt is true</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Bored of chaining!&#39;</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Bored of chaining!'</span><span class="p">);</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-    <span class="p">});</span></code></pre></div>
+    <span class="p">});</span></code></pre></figure>
 
 <h3 id="catch">Catch</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">someAsyncFunction</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
     <span class="p">});</span>
 
     <span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
 
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;1st then&#39;</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'1st then'</span><span class="p">);</span>
 
     <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
 
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;2nd then&#39;</span><span class="p">);</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'2nd then'</span><span class="p">);</span>  
 
     <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
 
       <span class="c1">// handles error of first or second `then`</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Err: &#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
-    <span class="p">});</span></code></pre></div>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Err: '</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+    <span class="p">});</span></code></pre></figure>
 
 <h3 id="finally-as-the-semantics-dictate">Finally: as the semantics dictate</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">someAsyncFunction</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
     <span class="p">});</span>
 
@@ -169,41 +169,41 @@ irrespective of it being resolved or rejected.</p>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
 
     <span class="p">}).</span><span class="k">finally</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Cannot stop me from running.&#39;</span><span class="p">);</span>
-    <span class="p">})</span></code></pre></div>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Cannot stop me from running.'</span><span class="p">);</span>
+    <span class="p">})</span></code></pre></figure>
 
 <h3 id="hash-of-promises-all">Hash of promises (all)</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">promises</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">onePromise</span><span class="o">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">promises</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">onePromise</span><span class="p">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">someAsyncFunction</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
         <span class="p">}),</span>
-        <span class="nx">anotherPromise</span><span class="o">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="na">anotherPromise</span><span class="p">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">someAsyncFunction</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
         <span class="p">}),</span>
-        <span class="nx">lastPromise</span><span class="o">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="na">lastPromise</span><span class="p">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">someAsyncFunction</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
         <span class="p">})</span>
     <span class="p">};</span>
 
     <span class="nx">rsvp</span><span class="p">.</span><span class="nx">hash</span><span class="p">(</span><span class="nx">promises</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Will only come here when every promise is fulfilled</span>
-        <span class="c1">// in our case, it&#39;s not</span>
+        <span class="c1">// in our case, it's not</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">onePromise</span><span class="p">);</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">anotherPromise</span><span class="p">);</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">lastPromise</span><span class="p">);</span>
-    <span class="p">});</span></code></pre></div>
+    <span class="p">});</span></code></pre></figure>
 
 <h3 id="hash-settled-all-settled">Hash settled (all settled)</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">promises</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">onePromise</span><span class="o">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">promises</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">onePromise</span><span class="p">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">someAsyncFunction</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
         <span class="p">}),</span>
-        <span class="nx">anotherPromise</span><span class="o">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="na">anotherPromise</span><span class="p">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">someAsyncFunction</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
         <span class="p">}),</span>
-        <span class="nx">lastPromise</span><span class="o">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="na">lastPromise</span><span class="p">:</span> <span class="k">new</span> <span class="nx">rsvp</span><span class="p">.</span><span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">someAsyncFunction</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
         <span class="p">})</span>
     <span class="p">};</span>
@@ -215,27 +215,27 @@ irrespective of it being resolved or rejected.</p>
         <span class="c1">// Output: </span>
         <span class="c1">// {</span>
         <span class="c1">//  onePromise: {</span>
-        <span class="c1">//      state: &#39;fulfilled&#39;,</span>
+        <span class="c1">//      state: 'fulfilled',</span>
         <span class="c1">//      value: {</span>
-        <span class="c1">//          name: &#39;mohan&#39;,</span>
+        <span class="c1">//          name: 'mohan',</span>
         <span class="c1">//          age: 55</span>
         <span class="c1">//      }</span>
         <span class="c1">//  },</span>
         <span class="c1">//  anotherPromise: {</span>
-        <span class="c1">//      state: &#39;rejected&#39;,</span>
+        <span class="c1">//      state: 'rejected',</span>
         <span class="c1">//      reason: {</span>
-        <span class="c1">//          msg: &#39;could not find the info&#39;</span>
+        <span class="c1">//          msg: 'could not find the info'</span>
         <span class="c1">//      }</span>
         <span class="c1">//  },</span>
         <span class="c1">//  lastPromise: {</span>
-        <span class="c1">//      state: &#39;fulfilled&#39;,</span>
+        <span class="c1">//      state: 'fulfilled',</span>
         <span class="c1">//      value: {</span>
-        <span class="c1">//          name: &#39;mohan&#39;,</span>
+        <span class="c1">//          name: 'mohan',</span>
         <span class="c1">//          age: 55</span>
         <span class="c1">//      }</span>
         <span class="c1">//  }</span>
         <span class="c1">// }</span>
-    <span class="p">});</span></code></pre></div>
+    <span class="p">});</span></code></pre></figure>
 
 
   </article>

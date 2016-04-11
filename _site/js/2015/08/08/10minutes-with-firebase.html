@@ -66,61 +66,61 @@
 
 <h3 id="every-data-has-a-url">Every data has a url</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s1">&#39;https://test231.firebaseio.com/&#39;</span><span class="p">);</span>
-    <span class="nx">rootRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s1">&#39;https://test231.firebaseio.com/&#39;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">ref</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s1">'https://test231.firebaseio.com/'</span><span class="p">);</span>
+    <span class="nx">rootRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s1">'https://test231.firebaseio.com/'</span><span class="p">);</span>
         
-    <span class="nx">usersRef</span> <span class="o">=</span> <span class="nx">rootRef</span><span class="p">.</span><span class="nx">child</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span>
+    <span class="nx">usersRef</span> <span class="o">=</span> <span class="nx">rootRef</span><span class="p">.</span><span class="nx">child</span><span class="p">(</span><span class="s1">'users'</span><span class="p">);</span>
     <span class="c1">// OR</span>
-    <span class="nx">usersRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">&quot;https://test231.firebaseio.com/users&quot;</span><span class="p">);</span>
+    <span class="nx">usersRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">"https://test231.firebaseio.com/users"</span><span class="p">);</span>
         
     <span class="c1">// access a specific data by url</span>
-    <span class="nx">ageRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">&quot;https://test231.firebaseio.com/users/mohan/age&quot;</span><span class="p">);</span></code></pre></div>
+    <span class="nx">ageRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">"https://test231.firebaseio.com/users/mohan/age"</span><span class="p">);</span></code></pre></figure>
 
 <h3 id="writesave-data">Write(save) data</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// set the age of mohan to 44</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">// set the age of mohan to 44</span>
     <span class="nx">ageRef</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mi">44</span><span class="p">);</span>
-    <span class="nx">mohanRef</span> <span class="o">=</span> <span class="nx">usersRef</span><span class="p">.</span><span class="nx">child</span><span class="p">(</span><span class="s1">&#39;mohan&#39;</span><span class="p">);</span>
-    <span class="nx">mohanRef</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span> <span class="nx">full_name</span><span class="o">:</span> <span class="s1">&#39;Mohan Lal&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span> <span class="nx">city</span><span class="o">:</span> <span class="s1">&#39;Bengaluru&#39;</span> <span class="p">});</span></code></pre></div>
+    <span class="nx">mohanRef</span> <span class="o">=</span> <span class="nx">usersRef</span><span class="p">.</span><span class="nx">child</span><span class="p">(</span><span class="s1">'mohan'</span><span class="p">);</span>
+    <span class="nx">mohanRef</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span> <span class="na">full_name</span><span class="p">:</span> <span class="s1">'Mohan Lal'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="na">city</span><span class="p">:</span> <span class="s1">'Bengaluru'</span> <span class="p">});</span></code></pre></figure>
 
 <h3 id="update-data">Update data</h3>
 
 <blockquote>
-  <p><code>update()</code> only updates data at the first child level, any data passed in beyond the first child level is a treated as a <code>set()</code> operation.</p>
+  <p><code class="highlighter-rouge">update()</code> only updates data at the first child level, any data passed in beyond the first child level is a treated as a <code class="highlighter-rouge">set()</code> operation.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">mohanRef</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="nx">job</span><span class="o">:</span> <span class="s1">&#39;WeeWee&#39;</span> <span class="p">});</span>
-    <span class="c1">// { full_name: &#39;Mohan Lal&#39;, age: 50, city: &#39;Bengaluru&#39;, job: &#39;WeeWee&#39; }</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">mohanRef</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="na">job</span><span class="p">:</span> <span class="s1">'WeeWee'</span> <span class="p">});</span>
+    <span class="c1">// { full_name: 'Mohan Lal', age: 50, city: 'Bengaluru', job: 'WeeWee' }</span></code></pre></figure>
 
 <h3 id="write-and-update-using-callbacks">Write and Update using callbacks</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">someRef</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;this is a message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">err</span> <span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">someRef</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'this is a message'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">err</span> <span class="p">)</span> <span class="p">{</span>
          <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-              <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Data was updated successfully!&#39;</span><span class="p">);</span>
+              <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Data was updated successfully!'</span><span class="p">);</span>
          <span class="p">}</span>
-    <span class="p">});</span></code></pre></div>
+    <span class="p">});</span></code></pre></figure>
 
 <h3 id="push-data">Push data</h3>
 
 <blockquote>
-  <p>At a multi user platform where simultaneously several users are engaging with the same data, the use of <code>set()</code> might be hazardous. Instead firebase provides <code>push()</code> that generates a unique ID every time a new child is added to the specified database reference.</p>
+  <p>At a multi user platform where simultaneously several users are engaging with the same data, the use of <code class="highlighter-rouge">set()</code> might be hazardous. Instead firebase provides <code class="highlighter-rouge">push()</code> that generates a unique ID every time a new child is added to the specified database reference.</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">postsRef</span> <span class="o">=</span> <span class="nx">ref</span><span class="p">.</span><span class="nx">child</span><span class="p">(</span><span class="s2">&quot;posts&quot;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">        <span class="kd">var</span> <span class="nx">postsRef</span> <span class="o">=</span> <span class="nx">ref</span><span class="p">.</span><span class="nx">child</span><span class="p">(</span><span class="s2">"posts"</span><span class="p">);</span>
 
         <span class="c1">// `push()` returns the ref to the newly added data </span>
         <span class="kd">var</span> <span class="nx">refMohanPost</span> <span class="o">=</span> <span class="nx">postsRef</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-             <span class="nx">author</span><span class="o">:</span> <span class="s2">&quot;mohan&quot;</span><span class="p">,</span>
-             <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;How to swim in an empty pond&quot;</span>
+             <span class="na">author</span><span class="p">:</span> <span class="s2">"mohan"</span><span class="p">,</span>
+             <span class="na">title</span><span class="p">:</span> <span class="s2">"How to swim in an empty pond"</span>
         <span class="p">});</span>
 
         <span class="kd">var</span> <span class="nx">refLilyPost</span> <span class="o">=</span> <span class="nx">postsRef</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-            <span class="nx">author</span><span class="o">:</span> <span class="s2">&quot;lily&quot;</span><span class="p">,</span>
-             <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;You smell like pie&quot;</span>
+            <span class="na">author</span><span class="p">:</span> <span class="s2">"lily"</span><span class="p">,</span>
+             <span class="na">title</span><span class="p">:</span> <span class="s2">"You smell like pie"</span>
         <span class="p">});</span>
 
         <span class="c1">// get the unique ID generated</span>
-        <span class="kd">var</span> <span class="nx">mohanPostId</span> <span class="o">=</span> <span class="nx">refMohanPost</span><span class="p">.</span><span class="nx">key</span><span class="p">();</span></code></pre></div>
+        <span class="kd">var</span> <span class="nx">mohanPostId</span> <span class="o">=</span> <span class="nx">refMohanPost</span><span class="p">.</span><span class="nx">key</span><span class="p">();</span></code></pre></figure>
 
 <h3 id="transaction">Transaction</h3>
 
@@ -128,39 +128,39 @@
   <p>These are useful for “atomic operations”</p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Atomically incrementing an upvote</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">// Atomically incrementing an upvote</span>
 
-    <span class="kd">var</span> <span class="nx">upvoteRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s1">&#39; ... upvote data url ... &#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">upvoteRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s1">' ... upvote data url ... '</span><span class="p">);</span>
     <span class="nx">upvoteRef</span><span class="p">.</span><span class="nx">transaction</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">current_value</span><span class="p">)</span> <span class="p">{</span>
          <span class="k">return</span> <span class="p">(</span><span class="nx">current_value</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">});</span>
 
 
-    <span class="c1">// Try to create a user for mohan, but only if the user id &#39;mohan&#39; isn&#39;t already taken</span>
+    <span class="c1">// Try to create a user for mohan, but only if the user id 'mohan' isn't already taken</span>
 
-    <span class="kd">var</span> <span class="nx">mohanRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s1">&#39;https://test231.firebaseio.com/users/mohan&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">mohanRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s1">'https://test231.firebaseio.com/users/mohan'</span><span class="p">);</span>
     <span class="nx">mohanRef</span><span class="p">.</span><span class="nx">transaction</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">currentData</span><span class="p">)</span> <span class="p">{</span>
  
     <span class="k">if</span> <span class="p">(</span><span class="nx">currentData</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;User mohan does not exist therefore we can create it.&#39;</span><span class="p">);</span>
-             <span class="k">return</span> <span class="p">{</span> <span class="nx">full_name</span><span class="o">:</span> <span class="s1">&#39;Mohan Lal&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span> <span class="nx">city</span><span class="o">:</span> <span class="s1">&#39;Bengaluru&#39;</span> <span class="p">};</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'User mohan does not exist therefore we can create it.'</span><span class="p">);</span>
+             <span class="k">return</span> <span class="p">{</span> <span class="na">full_name</span><span class="p">:</span> <span class="s1">'Mohan Lal'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="na">city</span><span class="p">:</span> <span class="s1">'Bengaluru'</span> <span class="p">};</span>
          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;User mohan already exists.&#39;</span><span class="p">);</span>
-             <span class="k">return</span><span class="p">;</span> <span class="c1">// Abort the transaction i.e. Don&#39;t return anything</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'User mohan already exists.'</span><span class="p">);</span>
+             <span class="k">return</span><span class="p">;</span> <span class="c1">// Abort the transaction i.e. Don't return anything</span>
          <span class="p">}</span>
     <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">committed</span><span class="p">,</span> <span class="nx">snapshot</span><span class="p">)</span> <span class="p">{</span>
      
           <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Transaction failed abnormally!&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Transaction failed abnormally!'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
          <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">committed</span><span class="p">)</span> <span class="p">{</span>
-             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;We aborted the transaction (because mohan already exists).&#39;</span><span class="p">);</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'We aborted the transaction (because mohan already exists).'</span><span class="p">);</span>
          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;User mohan added!&#39;</span><span class="p">);</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'User mohan added!'</span><span class="p">);</span>
          <span class="p">}</span>
 
-         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Wilma&#39;s data: &quot;</span><span class="p">,</span> <span class="nx">snapshot</span><span class="p">.</span><span class="nx">val</span><span class="p">());</span>
+         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Wilma's data: "</span><span class="p">,</span> <span class="nx">snapshot</span><span class="p">.</span><span class="nx">val</span><span class="p">());</span>
 
-    <span class="p">});</span></code></pre></div>
+    <span class="p">});</span></code></pre></figure>
 
 <h3 id="offline">Offline</h3>
 
@@ -170,80 +170,80 @@
 
 <h3 id="read-data">Read data</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">usersRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">&quot;https://test231.firebaseio.com/users&quot;</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">usersRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">"https://test231.firebaseio.com/users"</span><span class="p">);</span>
 
     <span class="c1">// returns the entire users array </span>
-    <span class="nx">usersRef</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">snapshot</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">usersRef</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'value'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">snapshot</span><span class="p">)</span> <span class="p">{</span>
          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">snapshot</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span> <span class="p">);</span>  <span class="c1">// array</span>
     <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Looks like you do not have permission to READ.&#39;</span><span class="p">);</span>
+         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Looks like you do not have permission to READ.'</span><span class="p">);</span>
     <span class="p">});</span>
 
     <span class="c1">// returns the added `child` </span>
-    <span class="nx">usersRef</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;child_added&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">snapshot</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">usersRef</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'child_added'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">snapshot</span><span class="p">)</span> <span class="p">{</span>
          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">snapshot</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span> <span class="p">);</span>  <span class="c1">// array element</span>
     <span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Looks like you do not have permission to READ.&#39;</span><span class="p">);</span>
-    <span class="p">});</span></code></pre></div>
+         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Looks like you do not have permission to READ.'</span><span class="p">);</span>
+    <span class="p">});</span></code></pre></figure>
 
-<p>And similarly, <code>child_changed</code> and <code>child_removed</code>.</p>
+<p>And similarly, <code class="highlighter-rouge">child_changed</code> and <code class="highlighter-rouge">child_removed</code>.</p>
 
 <h3 id="once">once()</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">firebaseRef</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">snapshot</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">firebaseRef</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">'value'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">snapshot</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// code to handle new value</span>
     <span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// code to handle read error</span>
-    <span class="p">});</span></code></pre></div>
+    <span class="p">});</span></code></pre></figure>
 
 <h3 id="security-check">Security Check!</h3>
 
 <blockquote>
-  <p>Below example allows anyone to read/write <code>/users/mohan</code> and its children, but doesn’t allow for admin.</p>
+  <p>Below example allows anyone to read/write <code class="highlighter-rouge">/users/mohan</code> and its children, but doesn’t allow for admin.</p>
 </blockquote>
 
 <h4 id="config">Config</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
-         <span class="s2">&quot;rules&quot;</span><span class="o">:</span> <span class="p">{</span>
-             <span class="s2">&quot;users&quot;</span><span class="o">:</span> <span class="p">{</span>
-                 <span class="s2">&quot;admin&quot;</span><span class="o">:</span> <span class="p">{</span>
-                     <span class="s2">&quot;.read&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-                     <span class="s2">&quot;.write&quot;</span><span class="o">:</span> <span class="kc">false</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="p">{</span>
+         <span class="s2">"rules"</span><span class="err">:</span> <span class="p">{</span>
+             <span class="s2">"users"</span><span class="err">:</span> <span class="p">{</span>
+                 <span class="s2">"admin"</span><span class="err">:</span> <span class="p">{</span>
+                     <span class="s2">".read"</span><span class="err">:</span> <span class="kc">false</span><span class="p">,</span>
+                     <span class="s2">".write"</span><span class="err">:</span> <span class="kc">false</span>
                  <span class="p">},</span>
-                 <span class="s2">&quot;mohan&quot;</span><span class="o">:</span> <span class="p">{</span>
-                     <span class="s2">&quot;.read&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-                     <span class="s2">&quot;.write&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                 <span class="s2">"mohan"</span><span class="err">:</span> <span class="p">{</span>
+                     <span class="s2">".read"</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
+                     <span class="s2">".write"</span><span class="err">:</span> <span class="kc">true</span>
                   <span class="p">}</span>
              <span class="p">}</span>
          <span class="p">}</span>
-    <span class="p">}</span></code></pre></div>
+    <span class="p">}</span></code></pre></figure>
 
 <h4 id="authenticate-with-a-token">Authenticate with a token</h4>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">usersRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">&quot;https://test231.firebaseio.com/users&quot;</span><span class="p">);</span>
-    <span class="nx">usersRef</span><span class="p">.</span><span class="nx">authWithCustomToken</span><span class="p">(</span><span class="s2">&quot;MY_AUTH_TOKEN&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">authData</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="nx">usersRef</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">"https://test231.firebaseio.com/users"</span><span class="p">);</span>
+    <span class="nx">usersRef</span><span class="p">.</span><span class="nx">authWithCustomToken</span><span class="p">(</span><span class="s2">"MY_AUTH_TOKEN"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">authData</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Authentication Failed!&quot;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Authentication Failed!"</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Authenticated successfully with payload:&quot;</span><span class="p">,</span> <span class="nx">authData</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Authenticated successfully with payload:"</span><span class="p">,</span> <span class="nx">authData</span><span class="p">);</span>
         <span class="p">}</span>
-    <span class="p">});</span></code></pre></div>
+    <span class="p">});</span></code></pre></figure>
 
 <h3 id="how-to-check-if-user-is-authenticated-or-not">How to check if user is authenticated or not?</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">authData</span> <span class="o">=</span> <span class="nx">usersRef</span><span class="p">.</span><span class="nx">getAuth</span><span class="p">();</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">authData</span> <span class="o">=</span> <span class="nx">usersRef</span><span class="p">.</span><span class="nx">getAuth</span><span class="p">();</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">authData</span><span class="p">)</span> <span class="p">{</span>
-         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Authenticated!&quot;</span><span class="p">);</span>
-    <span class="p">}</span></code></pre></div>
+         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Authenticated!"</span><span class="p">);</span>
+    <span class="p">}</span></code></pre></figure>
 
 <h3 id="a-few-pieces-of-api">A few pieces of API</h3>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Parent</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">// Parent</span>
     <span class="kd">var</span> <span class="nx">parentRef</span> <span class="o">=</span> <span class="nx">usersRef</span><span class="p">.</span><span class="nx">parent</span><span class="p">();</span>   <span class="c1">// https://test231.firebaseio.com</span>
 
     <span class="c1">// Root</span>
-    <span class="kd">var</span> <span class="nx">rootRef</span> <span class="o">=</span> <span class="nx">usersRef</span><span class="p">.</span><span class="nx">root</span><span class="p">();</span>   <span class="c1">// https://test231.firebaseio.com</span></code></pre></div>
+    <span class="kd">var</span> <span class="nx">rootRef</span> <span class="o">=</span> <span class="nx">usersRef</span><span class="p">.</span><span class="nx">root</span><span class="p">();</span>   <span class="c1">// https://test231.firebaseio.com</span></code></pre></figure>
 
 <h4 id="check-out-more">Check out more</h4>
 
