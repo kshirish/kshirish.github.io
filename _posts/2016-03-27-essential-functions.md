@@ -110,19 +110,24 @@ categories: js
 
 #### implementation
 {% highlight javascript %}
-  function curry(func) {
-    // no of arguments that `func` is expeccting
-    var arity = func.length;
+  function curry(fx) {
+    // no of arguments that `fx` is expecting
+    var arity = fx.length;
 
-    return function() {
-      var args1 = [].slice.apply(arguments);
-
-      if(arity >= args1) return func.apply(null, args1);
-      else return function() {  // returns a partial function
-        var args2 = [].slice.apply(arguments);
-        return func.apply(null, args1.concat(args2));
+    return function f1() {
+      var args = [].slice.call(arguments, 0);
+      if (args.length >= arity) {
+        return fx.apply(null, args);
       }
-    }
+      else {
+        return function f2() {
+          var args2 = [].slice.call(arguments, 0);
+          // recursion logic:-
+          // call `f1` with accumulated arguments
+          return f1.apply(null, args.concat(args2)); 
+        }
+      }
+    };
   }
 {% endhighlight %}
 

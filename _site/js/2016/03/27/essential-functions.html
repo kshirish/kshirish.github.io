@@ -167,19 +167,24 @@
 
 <h4 id="implementation-3">implementation</h4>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">function</span> <span class="nx">curry</span><span class="p">(</span><span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// no of arguments that `func` is expeccting</span>
-    <span class="kd">var</span> <span class="nx">arity</span> <span class="o">=</span> <span class="nx">func</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">function</span> <span class="nx">curry</span><span class="p">(</span><span class="nx">fx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// no of arguments that `fx` is expecting</span>
+    <span class="kd">var</span> <span class="nx">arity</span> <span class="o">=</span> <span class="nx">fx</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 
-    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">args1</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
-
-      <span class="k">if</span><span class="p">(</span><span class="nx">arity</span> <span class="o">&gt;=</span> <span class="nx">args1</span><span class="p">)</span> <span class="k">return</span> <span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args1</span><span class="p">);</span>
-      <span class="k">else</span> <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// returns a partial function</span>
-        <span class="kd">var</span> <span class="nx">args2</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
-        <span class="k">return</span> <span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">args2</span><span class="p">));</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="nx">f1</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="nx">arity</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">fx</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
       <span class="p">}</span>
-    <span class="p">}</span>
+      <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kd">function</span> <span class="nx">f2</span><span class="p">()</span> <span class="p">{</span>
+          <span class="kd">var</span> <span class="nx">args2</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+          <span class="c1">// recursion logic:-</span>
+          <span class="c1">// call `f1` with accumulated arguments</span>
+          <span class="k">return</span> <span class="nx">f1</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">args2</span><span class="p">));</span> 
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
   <span class="p">}</span></code></pre></figure>
 
 <h4 id="usage-3">usage</h4>
