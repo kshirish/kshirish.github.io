@@ -6,8 +6,8 @@
 </description>
     <link>http://kshirish.github.io/</link>
     <atom:link href="http://kshirish.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 23 Apr 2016 01:53:55 +0530</pubDate>
-    <lastBuildDate>Sat, 23 Apr 2016 01:53:55 +0530</lastBuildDate>
+    <pubDate>Wed, 27 Apr 2016 10:05:32 +0530</pubDate>
+    <lastBuildDate>Wed, 27 Apr 2016 10:05:32 +0530</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -53,7 +53,7 @@
     npm install underscore@^1.8.3
 
     &lt;span class=&quot;c&quot;&gt;# Set versioning of your own package&lt;/span&gt;
-    npm version &amp;lt;major/minor/patch&amp;gt;
+    npm version &amp;lt;major/minor/patch&amp;gt; -m &amp;lt;message-here&amp;gt;
 
     &lt;span class=&quot;c&quot;&gt;# Upgrading npm to latest version&lt;/span&gt;
     sudo npm install -g npm
@@ -79,7 +79,9 @@
     &lt;span class=&quot;c&quot;&gt;# Delete extraneous packages from your directory&lt;/span&gt;
     npm prune
 
-    &lt;span class=&quot;c&quot;&gt;# Get rid of duplicate nested dependencies&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Searches the local package tree and attempts to simplify the overall &lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# structure by moving dependencies further up the tree, where they can be &lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# more effectively shared by multiple dependent packages.&lt;/span&gt;
     npm dedupe&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;references&quot;&gt;References&lt;/h4&gt;

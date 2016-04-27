@@ -103,7 +103,7 @@
     npm install underscore@^1.8.3
 
     <span class="c"># Set versioning of your own package</span>
-    npm version &lt;major/minor/patch&gt;
+    npm version &lt;major/minor/patch&gt; -m &lt;message-here&gt;
 
     <span class="c"># Upgrading npm to latest version</span>
     sudo npm install -g npm
@@ -129,7 +129,9 @@
     <span class="c"># Delete extraneous packages from your directory</span>
     npm prune
 
-    <span class="c"># Get rid of duplicate nested dependencies</span>
+    <span class="c"># Searches the local package tree and attempts to simplify the overall </span>
+    <span class="c"># structure by moving dependencies further up the tree, where they can be </span>
+    <span class="c"># more effectively shared by multiple dependent packages.</span>
     npm dedupe</code></pre></figure>
 
 <h4 id="references">References</h4>

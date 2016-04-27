@@ -33,7 +33,7 @@ Alternatively, if you create a package which does not have an `index.js` or a *m
     npm install underscore@^1.8.3
 
     # Set versioning of your own package
-    npm version <major/minor/patch>
+    npm version <major/minor/patch> -m <message-here>
 
     # Upgrading npm to latest version
     sudo npm install -g npm
@@ -59,8 +59,11 @@ Alternatively, if you create a package which does not have an `index.js` or a *m
     # Delete extraneous packages from your directory
     npm prune
 
-    # Get rid of duplicate nested dependencies
+    # Searches the local package tree and attempts to simplify the overall 
+    # structure by moving dependencies further up the tree, where they can be 
+    # more effectively shared by multiple dependent packages.
     npm dedupe
+
 {% endhighlight %}
 
 #### References
