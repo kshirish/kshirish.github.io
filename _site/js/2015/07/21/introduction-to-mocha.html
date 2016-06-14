@@ -62,8 +62,8 @@
   </header>
 
   <article class="post-content">
-    <p>#What is Mocha?
-Mocha is a JavaScript test framework running on Node.js and the browser which makes asynchronous testing smooth.</p>
+    <h1 id="what-is-mocha">What is Mocha?</h1>
+<p>Mocha is a JavaScript test framework running on Node.js and the browser which makes asynchronous testing smooth.</p>
 
 <h1 id="baby-step">Baby step!</h1>
 
@@ -88,7 +88,7 @@ Mocha is a JavaScript test framework running on Node.js and the browser which ma
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// it uses `done`, just call it after you think your async will be finished</span>
 <span class="nx">describe</span><span class="p">(</span><span class="s1">'SetTimeOut'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
-    <span class="nx">it</span><span class="p">(</span><span class="s1">'do not why everyone is scared of me'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s1">'why everyone is scared of me'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
             <span class="nx">done</span><span class="p">();</span>

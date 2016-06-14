@@ -6,7 +6,7 @@ categories: js
 author: kshirish
 ---
 
-#What is Mocha?
+# What is Mocha?
 Mocha is a JavaScript test framework running on Node.js and the browser which makes asynchronous testing smooth.
 
 # Baby step!
@@ -34,7 +34,7 @@ Mocha is a JavaScript test framework running on Node.js and the browser which ma
 // it uses `done`, just call it after you think your async will be finished
 describe('SetTimeOut', function() {
 
-    it('do not why everyone is scared of me', function(done) {
+    it('why everyone is scared of me', function(done) {
         setTimeout(function() {
             assert.equal(1, 1);
             done();
