@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Elementry js series - II"
-date:   2016-05-17 21:09:00
+date:   2016-06-17 21:09:00
 author: kshirish
 categories: js
 ---
