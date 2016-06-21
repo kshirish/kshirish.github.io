@@ -158,6 +158,45 @@
 - Allow one website: <code class="highlighter-rouge">Access-Control-Allow-Origin: http://example.com</code> 
 - Allow everyone: <code class="highlighter-rouge">Access-Control-Allow-Origin: *</code></p>
 
+<h3 id="document-fragment">Document fragment</h3>
+<p>DOM injections and modifications are taxing, so the fewer the interactions the better. Using <code class="highlighter-rouge">DocumentFragments</code> is faster than repeated single DOM node injection and allows developers to perform DOM node operations (like adding events) on new elements instead of mass-injection via innerHTML.</p>
+
+<p>Example: fetching an HTML document using xhr2</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+    
+    <span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'http://www.html5rocks.com/en/tutorials/'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+    <span class="nx">xhr</span><span class="p">.</span><span class="nx">responseType</span> <span class="o">=</span> <span class="s1">'document'</span><span class="p">;</span>
+    
+    <span class="nx">xhr</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">doc</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">response</span><span class="p">;</span>
+
+      <span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'ol'</span><span class="p">);</span>
+      <span class="nx">container</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span> <span class="c1">// clear out.</span>
+
+      <span class="kd">var</span> <span class="nx">articles</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.articles-list li'</span><span class="p">);</span>
+
+      <span class="c1">// provides you a temorary root node on which you can hang your little nodes</span>
+      <span class="kd">var</span> <span class="nx">frag</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createDocumentFragment</span><span class="p">();</span>
+
+      <span class="p">[].</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">articles</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">art</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">art</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.title'</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">summary</span> <span class="o">=</span> <span class="nx">art</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.description'</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="nx">art</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.date'</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'li'</span><span class="p">);</span>
+
+        <span class="nx">li</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">title</span><span class="p">);</span>
+        <span class="nx">li</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">date</span><span class="p">);</span>
+        <span class="nx">li</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">summary</span><span class="p">);</span>
+        <span class="nx">frag</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+      <span class="p">});</span>
+
+      <span class="nx">container</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">frag</span><span class="p">);</span>
+    <span class="p">};</span>
+
+    <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span></code></pre></figure>
+
 <h3 id="references">References</h3>
 <ul>
   <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Mozilla</a></li>

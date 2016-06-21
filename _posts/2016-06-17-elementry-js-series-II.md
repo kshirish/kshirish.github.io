@@ -109,6 +109,47 @@ Normally if you tried to make an AJAX call from one domain to another, the reque
 - Allow one website: `Access-Control-Allow-Origin: http://example.com` 
 - Allow everyone: `Access-Control-Allow-Origin: *`
 
+### Document fragment
+DOM injections and modifications are taxing, so the fewer the interactions the better. Using `DocumentFragments` is faster than repeated single DOM node injection and allows developers to perform DOM node operations (like adding events) on new elements instead of mass-injection via innerHTML.
+
+Example: fetching an HTML document using xhr2
+
+{% highlight javascript %}
+    var xhr = new XMLHttpRequest();
+    
+    xhr.open('GET', 'http://www.html5rocks.com/en/tutorials/', true);
+    xhr.responseType = 'document';
+    
+    xhr.onload = function(e) {
+      var doc = e.target.response;
+
+      var container = document.querySelector('ol');
+      container.innerHTML = ''; // clear out.
+
+      var articles = doc.querySelectorAll('.articles-list li');
+
+      // provides you a temorary root node on which you can hang your little nodes
+      var frag = document.createDocumentFragment();
+
+      [].forEach.call(articles, function(art, i) {
+
+        var title = art.querySelector('.title');
+        var summary = art.querySelector('.description');
+        var date = art.querySelector('.date');
+        var li = document.createElement('li');
+
+        li.appendChild(title);
+        li.appendChild(date);
+        li.appendChild(summary);
+        frag.appendChild(li);
+      });
+
+      container.appendChild(frag);
+    };
+
+    xhr.send();
+{% endhighlight %}
+
 ### References
 - [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Image](http://i.stack.imgur.com/UfXRZ.png)
