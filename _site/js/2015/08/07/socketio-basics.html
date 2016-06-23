@@ -133,7 +133,7 @@ default namespace : <code class="highlighter-rouge">/</code></p>
     
     <span class="c1">// leave a `room`</span>
     <span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'connection'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">socket</span><span class="p">){</span>
-      <span class="nx">socket</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">'some room'</span><span class="p">);</span>
+      <span class="nx">socket</span><span class="p">.</span><span class="nx">leave</span><span class="p">(</span><span class="s1">'some room'</span><span class="p">);</span>
     <span class="p">});</span>
     
     <span class="c1">// broadcast to entire `room`</span>

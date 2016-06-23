@@ -98,7 +98,7 @@ categories: js
     
     // leave a `room`
     io.on('connection', function(socket){
-      socket.join('some room');
+      socket.leave('some room');
     });
     
     // broadcast to entire `room`
